@@ -1,0 +1,65 @@
+/* pages/confirm/confirm.wxss */
+
+page{
+  background: #eeeeee;
+}
+.paybody {
+  width: 90%;
+  border-radius: 5px 5px 5px 5px;
+  margin: 0 auto;
+  background: white;
+  font-size: 13pt;
+}
+
+.pay_head {
+  width: 100%;
+  
+}
+
+.pay_head_1 {
+  margin-left: 10%;
+}
+
+.pay_head_2 {
+  margin-left: 10%;
+  margin-top:10px;
+}
+
+.pay_info_info {
+  display: flex;
+  height: 70px;
+  /* border-bottom: 1px solid #d7d8da; */
+}
+
+.pay_info_name {
+  margin: 20px;
+  width: 60%;
+  margin-left: 10%;
+}
+
+.pay_info_pricenum {
+  width: 30%;
+  margin-top: 10px;
+}
+
+
+.pay_info_number {
+  margin: 10px;
+}
+
+.pay_tail_total {
+  padding: 10px;
+  margin-left: 70%;
+  color: #38404a;
+  font-size: 18px;
+  width: 20%;
+}
+
+.pay{
+position: fixed;
+top:90%;
+width:90%;
+margin-left: 5%;
+}
+
+

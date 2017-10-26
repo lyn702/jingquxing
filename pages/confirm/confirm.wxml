@@ -1,0 +1,69 @@
+<!--pages/confirm/confirm.wxml-->
+
+
+<!--头-->
+<view class="pay_head">
+    <!-- 单项票显示订单编号及“退款”按钮；-->
+    <view>订单编号：{{order}}
+        <span id="" catchtap="{{refund_act}}" style="float:right;padding-right:30px;color:#888;font-size:12pt;">{{refund}}</span>
+    </view>
+    <!-- 次卡或期限卡或联程卡时，显示最近使用时间、剩余可用次数
+    （type=0当前为单程票，type=1当前为联程卡，type=2当前为次卡，type=3当前为期限卡）
+    （参数说明：is_card==1当前票为次卡;is_card==2当前卡为期限卡；
+    available=1当前卡在有效期内，available==0当前卡已过期;
+    is_used==0未使用；is_used==1,使用中；is_used==2，已用完；）-->
+    <view wx:if="{{is_card == 1}}">
+        <span wx:if="{{is_used==1}}">最近使用：{{last_used}}</span>
+        <span style="float:right;" wx:if="{{available==1 && is_used==0}}">未使用</span>
+        <span style="float:right;" wx:if="{{available==1 && is_used==1}}">余{{available_times}}次</span>
+        <span style="float:right;" wx:if="{{available==1 && is_used==2}}">已用完</span>
+        <span style="float:right;" wx:if="{{available==0}}">已过期</span>
+    </view>
+    <view wx:if="{{is_card == 2}}">
+        <span wx:if="{{available==1 && is_used==1}}">最近使用：{{last_used}}</span>
+        <span wx:if="{{available==1 && is_used==0}}">未使用</span>>
+        <span wx:if="{{available==0}}">已过期</span>>
+    </view>
+</view>
+
+<view class="paybody">
+    <view class="tip">{{title}}</view>
+    <view style='height:1px;background:#888;'></view>
+
+    <view class="pay_info">
+
+        <!--信息-->
+        <view class="detail">
+            <view>{{scene}}</view>
+            <view class=''>
+                <view class="ticket" wx:for="{{tickets}}" wx:for-item="ticket" wx:key="id">
+                    门票详情：
+                    <span>{{ticket.label}} ——</span>
+                    <span>{{ticket.num}}人</span>
+                </view>
+                <view>消费金额: {{money}}元</view>
+            </view>
+        </view>
+        <view style='height:1px;background:#888;'></view>
+
+    </view>
+    <view wx:if="{{is_coupon==0}}" class='channel'>
+        <view class='name'>{{1}}</view>
+        <view class='number'>{{channel}}</view>
+        <view class="price">{{use_status}}</view>
+    </view>
+
+    <view wx:if="{{is_coupon==1}}" class='ticket' wx:for="{{union_tic}}" wx:for-item="t" class='channel'>
+        <view class='name'>{{index+1}}</view>
+        <view class='number'>{{t.channel}}</view>
+        <view class="price">
+            <span wx:if="{{t.hide == 0}}">{{t.status}}</span>
+            <span class="used" wx:if="{{t.hide == 1}}">{{t.status}}</span>
+        </view>
+    </view>
+    <view class="qrcode">
+        <canvas canvas-id="qrcode" />
+    </view>
+    <button catchtap="checkin" type="primary" class="checkin" disabled="{{disabled}}">自助扫码检票</button>
+    <!-- <button type="default" class="return" catchtap="goback">返回票包</button> -->
+</view>

@@ -1,0 +1,31 @@
+<!--pages/coupon/coupon.wxml-->
+<view class='wrap'>
+  <view class='order'>
+    <span class='orderid'>订单编号：123456789012</span>
+    <span class='refund' catchtap='refund'>申请退票</span>
+  </view>
+  <view class='orderinfo'>
+    <view class='tips'>您的订单中包含不同的游玩项目，请至相应通道检票</view>
+    <view style='width:100%;height:1px;background:#aaa;'></view>
+   <view class='park'>游玩园区：酒城乐园陆地世界</view>
+    <view class="index_footer_tick_number">
+        <image id="{{ticket.id}}" bindtap="subNum" class="index_footer_tick_number_img" src="../../image/number_sub.png" />
+        <view class="index_footer_tick_number_num">
+          <view style="visibility:hidden">A</view>
+          {{ticket.number}}
+          <view style="visibility:hidden">B</view>
+        </view>
+        <image id="{{ticket.id}}" bindtap="addNum" class="index_footer_tick_number_img" src="../../image/number_add.png" />
+      </view>
+    <view class='details'>门票详情：成人日场2张，儿童日场1张</view>
+    <view class='money'>消费金额：1234元</view>
+    <view style='width:100%;height:1px;background:#aaa;'></view>
+    <view class='tickets'>
+     
+      <view class='more'>查看更多</view>
+      <view class='qrcode'><image src='../../image/qrcode.png'>二维码</image></view>
+    </view>
+    
+  </view>
+  <button type='primary' class='check'>自主扫码检票</button>
+</view>

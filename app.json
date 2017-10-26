@@ -1,0 +1,23 @@
+{
+  "enableDebug": "true",
+  "pages": [
+    "pages/zhuye2/zhuye2",
+    "pages/confirm/confirm",
+    "pages/cards/cards",
+    "pages/checked/checked",
+    "pages/proto/proto",
+    "pages/pay/pay",
+    "pages/history/history",
+    "pages/index/index",
+    "pages/index2/index2",
+    "pages/register/register"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0099ff",
+    "navigationBarTitleText": "景区行",
+    "navigationBarTextStyle": "white",
+    "enableDebug": "true",
+    "enablePullDownRefresh": "true"
+  }
+}

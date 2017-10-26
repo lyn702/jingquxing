@@ -1,0 +1,46 @@
+<view class="top">
+  <view class="time">
+    <text>{{time}}</text>
+  </view>
+  <view class="day">
+    <view>
+      <text class="date">{{date}} </text>
+    </view>
+    <view>
+      <text class="week">{{day}}</text>
+    </view>
+  </view>
+</view>
+<view class="ticket">
+  <view class="parkname">
+    <text>{{myTickets[0].parkname}}</text>
+  </view>
+
+  <view class="passname">
+    <text>{{parkname}}:</text>
+    <text>{{channelname}}</text>
+  </view>
+  <view class="ticketinfo" wx:for="{{tickets}}" wx:for-index="idx" wx:for-item="ticket" >
+    <text>{{ticket.label}} ---- </text>
+    <text>{{ticket.num}}张</text>
+  </view>
+  <view>
+    <view style="background:#333; width:90%; height:1px;"></view>
+    <view class="total">
+      <text style="text-align:left">合 计：</text>
+      <text style="text-align:right">￥{{totalmoney}}</text>
+    </view>
+
+  </view>
+  <view class="userinfo">
+    <view class="classname">
+      <text>用户账号：{{phone}}</text>
+    </view>
+    <view class="classname">
+      <text>使用时间：{{date}} - {{time}}</text>
+    </view>
+  </view>
+</view>
+
+
+  <button id="confirm" type='primary' disabled="{{disabledGetCode}}" bindtap="goback">{{codeButtText}}</button>

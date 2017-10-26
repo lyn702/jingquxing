@@ -1,0 +1,65 @@
+/* pages/coupon/coupon.wxss */
+
+.order{
+  width:100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14pt;
+  background: #eee;
+}
+.orderid{
+  margin-left:20rpx;
+}
+.refund{
+  float:right;
+  margin-right:20rpx;
+  color:blue;
+}
+
+.orderinfo{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding:0 20rpx;
+  box-sizing: border-box;
+}
+.orderinfo>view{
+  margin-top:20rpx;
+}
+.tips{
+  color:red;
+  font-size: 12pt;
+  margin-top:10px;
+}
+.tickets{
+  padding:20rpx;
+}
+.tickets li{
+  display: block;
+  list-style-type: decimal;
+}
+.tickets li>span:nth-child(2){
+  float:right;
+}
+
+.more{
+  margin-left:40%;
+  color:blue;
+}
+
+.qrcode{
+  margin-left:180rpx;
+}
+.qrcode>image{
+  width:350rpx;
+  height: 350rpx;
+}
+
+.check{
+  width: 90%;
+  margin-left: 5%;
+}
+.used{
+  border:1px solid red;
+  color:red;
+}

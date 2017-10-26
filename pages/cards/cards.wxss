@@ -1,0 +1,162 @@
+page {
+  background: #eee;
+  font-size: 11pt;
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.status {
+  margin-right: 20rpx;
+  float: right;
+  color: #666;
+}
+
+.tickets_list {
+  padding: 30rpx;
+  margin-top: 10px;
+  width: 690rpx;
+  background: white;
+}
+
+.type {
+  padding: 4px;
+  background: #0099ff;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.saoma {
+  position: fixed;
+  top: 90%;
+  left: 220rpx;
+  width: 310rpx;
+  height: 80rpx;
+  background: #333;
+  border-radius: 20px;
+  opacity: 0.7;
+}
+
+.scancode {
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 20rpx;
+}
+
+.saoma1 {
+  position: fixed;
+  top: 90%;
+  left: 360rpx;
+  color: white;
+  line-height: 80rpx;
+  font-size: 12pt;
+}
+
+.history {
+  color: #777;
+  font-size: 13px;
+  position: fixed;
+  top: 90%;
+  left: 640rpx;
+  width: 80rpx;
+  height: 80rpx;
+  background: white;
+  /* border-radius: 40rpx; *//* opacity: 0.8; */
+}
+
+.his {
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 0;
+}
+
+.usetime {
+  display: inline-block;
+  margin-left: 20px;
+  color: #999;
+}
+
+.buyday {
+  color: #999;
+}
+
+.parkname {
+  color: #333;
+}
+
+.t_left {
+  display: inline-block;
+  width: 66%;
+}
+
+.t_right {
+  display: inline-block;
+  width: 30%;
+  margin-top: 15px;
+  float: right;
+}
+
+.ticket_num {
+  margin-left: 4px;
+}
+
+.empty{
+  margin-top:100px;
+  text-align: center;
+}
+
+.t_right>button{
+  background: #1aad19;
+  color:#fff;
+}
+
+.card{
+  font-size:10pt;
+  width:680rpx;
+  box-shadow: 2rpx 2rpx 2rpx 2rpx #aaa;
+  /* margin-left: 10rpx; */
+  padding: 10rpx;
+  border-radius: 8px;
+  font-size: 11pt;
+  margin-top:20rpx;
+  background: #fff;
+  color:#333;
+}
+.usecard {
+    /*background: rgba(255, 255, 255, 1);*/
+    color: #A1A1A1;
+}
+
+.card>view{
+  padding:10rpx;
+}
+.parkname{
+  font-size: 14pt;
+  font-weight: bolder;
+  font-family: Microsoft YaHei;
+  color:#666;
+
+}
+
+.cards{
+  margin-left: 20rpx;
+  border-left: 3px solid #0099ff;
+  padding-left: 10rpx;
+}
+
+.all{
+  margin-right:22rpx;
+  float:right;
+  color:blue;
+}
+
+.title{
+  margin-top:10px;
+  font-size: 14pt;
+
+}
