@@ -48,7 +48,7 @@ page {
   display: inline-block;
   width: 50%;
   height: 100px;
-  /*font-size: 13px;*/
+  font-size: 13px;
 }
 
 .t_info>view {
