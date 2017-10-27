@@ -1,38 +1,71 @@
 <!--pages/t/t.wxml-->
-
+<!-- 页面显示卡包 -->
 <block class="main">
 
   <block wx:for="{{ticketList}}" wx:for-item="ticket" wx:key="id" wx:if="{{flag=='coupon'}}">
-    <view class="package_ticket">
-      <view class="ticket" >
-        <view class='price'>
-          <view class='tprice'>￥{{ticket.price}}</view>
-          <span class="type" wx:if="{{flag=='coupon'}}">联程票</span>
-        </view>
-        <view class='t_info'>
-          <view>游玩项目：{{ticket.scene}}{{ticket.type}}</view>
-          <view>门票类型：{{ticket.label}}</view>
-          <view>游玩时间：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
+<!-- 显示联程卡 -->
+    <view wx:if="{{ticket.type == '2'}}">
+      <view class="package_ticket">
+        <view class="ticket" >
+          <view class='price'>
+            <view class='tprice'>￥{{ticket.price}}</view>
+            <span class="type" wx:if="{{flag=='coupon'}}">联程卡</span>
+          </view>
+          <view class='t_info'>
+            <view>{{ticket.scene_name}}</view>
+            <view>门票类型：{{ticket.label}}</view>
+            <view>游玩时间：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
 
+          </view>
+          <view class='add_t' bindtap="addNum" id="{{ticket.id}}" wx:if="{{show_tic}}">
+            <view class='add'>
+              <image src="../../image/11.png"></image>
+            </view>
+          </view>
         </view>
-        <view class='add_t' bindtap="addNum" id="{{ticket.id}}" wx:if="{{show_tic}}">
-          <view class='add'>
-            <image src="../../image/11.png"></image>
+        <view class='ticket info' wx:if="{{ticket.type=='2'}}">
+          <view class='detail'>
+            门票包含：{{ticket.channel_name}}
+          </view>
+          <view class='tips'>
+            购票须知：购买多张票的情况下，同一项目一次性检票，检票后无法退票。联程票每单仅限一种类型，如需多种请分别下单。
           </view>
         </view>
       </view>
-      <view class='ticket info' wx:if="{{flag=='coupon'}}">
-        <view class='detail'>
-          门票包含：{{ticket.channel_name}}
-        </view>
-        <view class='tips'>
-          购票须知：购买多张票的情况下，同一项目一次性检票，检票后无法退票。联程票每单仅限一种类型，如需多种请分别下单。
-        </view>
-      </view>
     </view>
+<!-- 显示次卡  -->
+    <view wx:if="{{ticket.type == '1'}}">
+        <view class="package_ticket">
+          <view class="ticket" >
+            <view class='price'>
+              <view class='tprice'>￥{{ticket.price}}</view>
+              <span class="type" wx:if="{{flag=='coupon'}}">次卡</span>
+            </view>
+            <view class='t_info'>
+              <view>{{ticket.scene_name}}</view>
+              <view>有效期：长期有效</view>
+            </view>
+            <view class='add_t' bindtap="addNum" id="{{ticket.id}}" wx:if="{{show_tic}}">
+              <view class='add'>
+                <image src="../../image/11.png"></image>
+              </view>
+            </view>
+          </view>
+          <view class='ticket info' wx:if="{{ticket.type=='1'}}">
+            <view class='detail'>
+              门票包含：{{ticket.channel_name}}
+            </view>
+            <view class='tips'>
+              购票须知：每人只能购买一次，用完后可以再次购买；本卡购买后不支持退卡。
+            </view>
+          </view>
+        </view>
+    </view>
+<!-- 显示期限卡 -->
   </block>
 </block>
 
+<!-- 页面显示单项票 -->
 <block class="main">
 
   <view class='package_ticket' wx:for="{{ticketList}}" wx:for-item="ticket" wx:key="id" wx:if="{{flag=='buy'}}" >

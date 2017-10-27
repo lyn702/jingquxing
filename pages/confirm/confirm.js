@@ -25,7 +25,6 @@ Page({
     var that = this
     that.data.order = app.globalData.orderid
     var orderid = app.globalData.orderid
-    wxbarcode.qrcode('qrcode', orderid, 350, 350)//生成二维码
     //   console.log(orderid)
     //  console.log(app.globalData.userid)
     wx.request({
@@ -33,6 +32,7 @@ Page({
       data: {
         "order_id": orderid,
         "visitor_id": app.globalData.userid,
+        "scene_id": app.globalData.channel_id,
         "appname": app.globalData.appname,
         "device": app.globalData.device
       },
@@ -42,12 +42,15 @@ Page({
       method: "POST",
       success: function (res) {
         console.log(res)
+        var zifuchuan = 'uid=' + app.globalData.userid + '&sid=' + res.data.order.scene_id + '&cid='+res.data.order.channel_id +'&oid='+ res.data.order.id
+        console.log(zifuchuan)
+        wxbarcode.qrcode('qrcode', zifuchuan, 350, 350)//生成二维码
         var union = []
         var order = res.data.order
         var temp = order.type
         // console.log(temp)
         // console.log(res.data)
-        // BUG区域
+
         // 0-单项票 1-联程卡 2-次卡 3-期限卡
         if(temp == 0){
           that.setData({
@@ -102,7 +105,15 @@ Page({
         app.globalData.scene_id = order.scene_id
         // that.data.is_coupon = order.is_coupon
         that.data.type = order.type
+        // 通道ID
         var ar = order.channel
+        console.log(ar)
+        // 景区ID
+        var cr = order.scene
+        console.log(cr)
+        // 订单ID
+        var dr = order.id
+        console.log(dr)
         var br = order.used_channel
         if (order.type == 0) {
           ar = ar.split(",")
@@ -269,6 +280,7 @@ Page({
           if (res.data.pay_status == "SUCCESS") {
             wx.scanCode({
               success: (res) => {
+                //   console.log(res)
                 if (res.scanType == "QR_CODE") {
                   var flag = ""
                   var path = res.result
@@ -345,9 +357,9 @@ Page({
                           },
                           method: "POST",
                           success: function (res) {
-                            // console.log("参数visitor_id,order_id:")
-                            // console.log(app.globalData.userid)
-                            // console.log(orderid)
+                            console.log("参数visitor_id,order_id:")
+                            console.log(app.globalData.userid)
+                            console.log(orderid)
 
                             // console.log("checkin 返回值")
                             console.log(res)
@@ -440,101 +452,6 @@ Page({
       }
     })
   },
-
-  // onShow: function (options) {
-  //   var that = this
-  //   app.globalData.userid = wx.getStorageSync(app.globalData.storage_userid)
-  //   if (app.globalData.userid) {
-  //     wx.request({
-  //       url: app.globalData.rootUrl + "visitor/orderList",
-  //       data: {
-  //         "id": app.globalData.userid,
-  //         "appname": app.globalData.appname,
-  //         "device": app.globalData.device
-  //
-  //       },
-  //       header: {
-  //         "Content-Type": "application/x-www-form-urlencoded"
-  //       },
-  //       method: "POST",
-  //       success: function (res) {
-  //         //console.log(app.globalData.userid)
-  //         console.log('票包res')
-  //         console.log(res)
-  //         res = res.data
-  //         var temp = res.order_list
-  //         if (temp.length < 1) {
-  //           wx.showModal({
-  //             title: '您还没有买票，请扫码购票',
-  //             content: '',
-  //             showCancel:false
-  //           })
-  //         }
-  //         else {
-  //           var tlist = []
-  //           var tlist1 = []
-  //           var tlist2 = []
-  //
-  //
-  //           for (var i = 0; i < temp.length; i++) {
-  //               // console.log(temp[i].type)
-  //
-  //             var vtime = temp[i].validtime
-  //             temp[i].validtime = vtime.slice(11, 16) + "至" + vtime.slice(30, 35)
-  //             if (temp[i].type == 0) {
-  //               temp[i].type = "单项票"
-  //           } else if (temp[i].type == 1) {
-  //               temp[i].type = "联程卡"
-  //           } else if (temp[i].type == 2) {
-  //               temp[i].type = "次卡"
-  //           } else if (temp[i].type == 3) {
-  //               temp[i].type = "期限卡"
-  //           }
-  //             if (temp[i].status == 0) {
-  //               temp[i].status = "未使用"
-  //               tlist.push(temp[i])
-  //             }
-  //             else if (temp[i].status == 1) {
-  //               temp[i].status = "已使用"
-  //               tlist2.push(temp[i])
-  //             } else if (temp[i].status == 2) {
-  //               temp[i].status = "使用中"
-  //               tlist1.push(temp[i])
-  //             }
-  //           }
-  //
-  //           that.data.history0 = tlist.reverse() //未使用的门票
-  //           // console.log(that.data.history0)
-  //
-  //           that.data.history1 = tlist1.reverse()//使用中的门票
-  //           // console.log(that.data.history1)
-  //
-  //
-  //           that.data.history2 = tlist2.reverse()//已使用的门票
-  //           app.globalData.history = that.data.history2
-  //           // console.log(that.data.history2)
-  //           that.setData({
-  //             history0: tlist,
-  //             history2: tlist2,
-  //             history1: tlist1
-  //           })
-  //           if ((tlist.length < 1) && (tlist1.length < 1)) {
-  //             that.setData({
-  //               empty: true
-  //             })
-  //           }
-  //           if ((tlist.length > 0) || (tlist1.length > 0)) {
-  //             that.setData({
-  //               empty: false
-  //             })
-  //           }
-  //         }
-  //       }
-  //     })
-  //
-  //   }
-  // }
-
 
   onReachBottom: function () {
 

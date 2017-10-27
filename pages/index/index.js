@@ -204,7 +204,7 @@ Page({
             var t = ticket[i]
             if (app.globalData.flag == "coupon") {
               var n = t.channel_name.split(",")
-              t.type = t.scene_name + n.length + "项"
+              t.type = t.type
             }
             t.number = 0
             //console.log(t)
