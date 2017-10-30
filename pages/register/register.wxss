@@ -94,3 +94,7 @@ page {
   width: 450rpx;
   height: 450rpx;
 }
+.xieyi {
+    display: flex;
+    justify-content: flex-start;
+}

@@ -13,7 +13,6 @@
           </view>
           <view class='t_info'>
             <view>{{ticket.scene_name}}</view>
-            <view>门票类型：{{ticket.label}}</view>
             <view>游玩时间：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
 
           </view>
@@ -28,7 +27,7 @@
             门票包含：{{ticket.channel_name}}
           </view>
           <view class='tips'>
-            购票须知：购买多张票的情况下，同一项目一次性检票，检票后无法退票。联程票每单仅限一种类型，如需多种请分别下单。
+            购票须知：购买多张票的情况下，同一项目一次性检票，检票后无法退票。联程卡每单仅限一种类型，如需多种请分别下单。
           </view>
         </view>
       </view>
@@ -62,7 +61,9 @@
         </view>
     </view>
 <!-- 显示期限卡 -->
+
   </block>
+
 </block>
 
 <!-- 页面显示单项票 -->
