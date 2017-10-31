@@ -54,8 +54,7 @@
   </view>
 
   <!--已选票信息-->
-  <!--
-    <view class="index_footer_tick" hidden="{{hiddenFoorter}}"> -->
+ 
   <view class="index_footer_tick">
     <view class="index_footer_for" wx:for="{{myTicketList}}" wx:for-item="ticket" wx:key="id">
       <view class="index_footer_tick_name">{{ticket.label}}</view>
