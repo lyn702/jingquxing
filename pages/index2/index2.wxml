@@ -7,12 +7,17 @@
       <view class="ticket" >
         <view class='price'>
           <view class='tprice'>￥{{ticket.price}}</view>
-          <span class="type" >联程票</span>
+          <!-- 显示联程卡 -->
+          <span class="type" wx:if="{{ticket.type == '1'}}">联程卡</span>
+          <!-- 显示次卡 -->
+          <span class="type" wx:if="{{ticket.type == '2'}}">次卡</span>
+          <!-- 显示期限卡 -->
+          <span class="type" wx:if="{{ticket.type == '3'}}">期限卡</span>
         </view>
         <view class='t_info'>
-          <view>游玩项目：{{ticket.scene}}{{ticket.type}}</view>
+          <view>{{ticket.scene_name}}</view>
           <view>门票类型：{{ticket.label}}</view>
-          <view>游玩时间：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
+          <view>有效期：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
 
         </view>
         <view class='add_t' bindtap="addNum" id="{{ticket.id}}" wx:if="{{show_tic}}">
@@ -26,6 +31,7 @@
           门票包含：{{ticket.channel_name}}
         </view>
         <view class='tips'>
+          <image src='../../image/info_u250.png'></image>
           购票须知：购买多张票的情况下，同一项目一次性检票，检票后无法退票。联程票每单仅限一种类型，如需多种请分别下单。
         </view>
       </view>
@@ -43,7 +49,7 @@
   <!--操作-->
 
   <view class="index_footer_head">
-    <view class="index_footer_head_1">已选门票</view>
+    <view class="index_footer_head_1">购物车</view>
 
   </view>
 
@@ -70,7 +76,7 @@
   <view class="index_footer_pay">
     <view class="index_footer_pay_total">
       <view class="index_footer_pay_total_notice">
-        <image bindtap="hiddenMyTick" class="index_footer_pay_total_img" src="../../image/notice.png"></image>
+        <image bindtap="hiddenMyTick" class="index_footer_pay_total_img" src="../../image/u585.png"></image>
         <view hidden="{{hiddenNotice}}" class="index_footer_pay_total_img_notice">{{totalNum}}</view>
       </view>
       <view hidden="{{hiddenNotice}}" class="index_footer_pay_total_price">￥{{totalPrice}}</view>

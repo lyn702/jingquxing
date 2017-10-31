@@ -66,6 +66,11 @@ page {
   height: 60px;
 }
 
+.tips>image {
+    width: 30px;
+    height: 30px;
+}
+
 .info {
   margin-top: 0;
 }
@@ -76,7 +81,7 @@ page {
 }
 
 .tips {
-  color: red;
+    color: #949494;
 }
 
 .index_footer {
@@ -89,7 +94,7 @@ page {
 .index_footer_head {
   display: flex;
   height: 90rpx;
-  background: #0099ff;
+  background: white;
 }
 
 .index_footer_head_1 {
@@ -97,19 +102,25 @@ page {
   margin-left: 10px;
   width: 85%;
   height: 100%;
-  color: white;
+  color: #5E5E5E;
 }
 
 .index_footer_head_2 {
   margin: 10px;
   width: 15%;
   height: 100%;
-  color: white;
+  color: #5E5E5E;
 }
 
 .index_footer_tick {
   width: 100%;
   height: 100%;
+  border-style: solid;
+  border-width: 1px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-color: rgba(153, 153, 153, 1);
 }
 
 /***********购物车门票***********/
@@ -150,15 +161,21 @@ page {
 
 /****底栏下单*****/
 .index_footer_pay {
-  width: 100%;
-  height: 55px;
-  display: flex;
-  display: -webkit-box;
+    width: 100%;
+    height: 55px;
+    border-style: solid;
+    border-width: 1px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-color: rgba(153, 153, 153, 1);
+    display: flex;
+    display: -webkit-box;
 }
 
 .index_footer_pay_total {
   width: 550rpx;
-  background: #525d6f;
+  background: white;
   display: flex;
   display: -webkit-box;
 }
@@ -169,10 +186,10 @@ page {
 }
 
 .index_footer_pay_total_img {
-  margin-top: 10px;
-  margin-left: 5px;
-  width: 100%;
-  height: 40px;
+    margin-top:2px;
+    margin-left:40rpx;
+    width:100rpx;
+    height:100rpx;
 }
 
 .index_footer_pay_total_price {
