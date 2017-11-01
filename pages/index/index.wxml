@@ -47,7 +47,6 @@
       <view class='price'>
         <view class='tprice'>￥{{ticket.price}}</view>
         <span class="type" wx:if="{{flag=='buy'}}">单项票</span>
-
       </view>
       <view class='t_info'>
         <view>项目：{{ticket.channel_name}}</view>
@@ -60,8 +59,8 @@
         </view>
       </view>
     </view>
-
   </view>
+
 </block>
 
 <view style="height:{{fill}}px">

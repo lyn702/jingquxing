@@ -7,7 +7,7 @@ Page({
     hiddenNotice: true,
     hiddenMyTick: true,
     myTickets: [],
-    totalNum: 0,
+    totalNum: 1,
     totalPrice: 0,
     flag: "",
     show_tic: true,
@@ -49,7 +49,6 @@ goToPay: function () {
     })
   }
 },
-
 
 hiddenMyTick: function () {
   var that = this

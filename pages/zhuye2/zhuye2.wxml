@@ -82,7 +82,7 @@
     </view>
 
     <!-- 使用中的门票列表 -->
-    <view class="tickets_list" wx:for="{{history1}}" wx:for-item="order" id="{{order.id}}" wx:key="id" bindtap="detail">
+    <view class="tickets_list" wx:for="{{history1}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.is_coupon=='1'}}" bindtap="detail">
         <view class="top">
             <span class="type">{{order.type}}</span>
             <span class="status">{{order.status}}</span>

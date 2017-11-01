@@ -147,6 +147,7 @@ page {
   width: 710rpx;
   height: 100rpx;
   margin: 20rpx;
+  align-items: center;
   /* border-bottom: 1px solid #ececec; */
 }
 
