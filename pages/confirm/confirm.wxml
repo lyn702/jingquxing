@@ -9,9 +9,7 @@
     </view>
     <!-- 次卡或期限卡或联程卡时，显示最近使用时间、剩余可用次数
     （type=0当前为单程票，type=1当前为联程卡，type=2当前为次卡，type=3当前为期限卡）
-    （参数说明：is_card==1当前票为次卡;is_card==2当前卡为期限卡；
-    available=1当前卡在有效期内，available==0当前卡已过期;
-    is_used==0未使用；is_used==1,使用中；is_used==2，已用完；）-->
+    （available=1当前卡在有效期内，available==0当前卡已过期;通过JS文件中的union来或许使用情况【status情况】）-->
     <view wx:if="{{is_card == 1}}">
         <span wx:if="{{is_used==1}}">最近使用：{{last_used}}</span>
         <span style="float:right;" wx:if="{{available==1 && is_used==0}}">未使用</span>
@@ -53,7 +51,7 @@
         <view class="price">{{use_status}}</view>
     </view>
 
-    <view wx:if="{{is_coupon==1}}" class='ticket' wx:for="{{union_tic}}" wx:for-item="t" class='channel'>
+    <view wx:if="{{is_coupon==1}}" class='ticket'  class='channel'>
         <view class='name'>{{index+1}}</view>
         <view class='number'>{{t.channel}}</view>
         <view class="price">

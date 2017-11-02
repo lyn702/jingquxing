@@ -12,17 +12,23 @@ page{
 }
 
 .pay_head {
-  width: 100%;
-  
+    background:white;
+    width:95%;
+    margin-top:10px;
+    margin-left:2%;
+    border-radius:10rpx;
+    box-shadow:2rpx 2rpx 2rpx 2rpx gray;
 }
 
 .pay_head_1 {
   margin-left: 10%;
+  color: #1E1E1E;
 }
 
 .pay_head_2 {
   margin-left: 10%;
   margin-top:10px;
+  color: #1E1E1E;
 }
 
 .pay_info_info {
@@ -35,6 +41,7 @@ page{
   margin: 20px;
   width: 60%;
   margin-left: 10%;
+  color: #1E1E1E;
 }
 
 .pay_info_pricenum {
@@ -45,13 +52,18 @@ page{
 
 .pay_info_number {
   margin: 10px;
+  color: #666666;
+}
+
+.pay_info_price {
+    color: #666666;
 }
 
 .pay_tail_total {
-  padding: 10px;
+  padding: 5px;
   margin-left: 70%;
   color: #38404a;
-  font-size: 18px;
+  font-size: 17px;
   width: 20%;
 }
 
@@ -61,5 +73,3 @@ top:90%;
 width:90%;
 margin-left: 5%;
 }
-
-

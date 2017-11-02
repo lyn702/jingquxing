@@ -43,7 +43,7 @@ Page({
       success: function (res) {
         console.log(res)
         var zifuchuan = 'uid=' + app.globalData.userid + '&sid=' + res.data.order.scene_id + '&cid='+res.data.order.channel_id +'&oid='+ res.data.order.id
-        console.log(zifuchuan)
+        // console.log(zifuchuan)
         wxbarcode.qrcode('qrcode', zifuchuan, 350, 350)//生成二维码
         var union = []
         var order = res.data.order
@@ -107,13 +107,13 @@ Page({
         that.data.type = order.type
         // 通道ID
         var ar = order.channel
-        console.log(ar)
+        // console.log(ar)
         // 景区ID
         var cr = order.scene
-        console.log(cr)
+        // console.log(cr)
         // 订单ID
         var dr = order.id
-        console.log(dr)
+        // console.log(dr)
         var br = order.used_channel
         if (order.type == 0) {
           ar = ar.split(",")
@@ -126,7 +126,7 @@ Page({
           }
 
           var patten = new RegExp(",")
-          console.log(patten)
+        //   console.log(patten)
           if (patten.test(br)) {
             that.setData({
               refund: "使用中",

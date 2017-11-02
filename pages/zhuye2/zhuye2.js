@@ -398,7 +398,7 @@ Page({
             } else if (temp[i].type == 3) {
                 temp[i].type = "期限卡"
             }
-            console.log(temp[0].type)
+            // console.log(temp[0].type)
               if (temp[i].status == 0) {
                 temp[i].status = "未使用"
                 tlist.push(temp[i])

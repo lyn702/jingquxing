@@ -3,13 +3,14 @@
         <image src='../../image/empty.png'></image>
         <view>门票列表为空，马上扫码购票吧</view>
     </view>
-    <!-- 如果卡包为空，不显示卡 -->
     <!-- 卡包栏 -->
     <view>
         <view class='title'>
             <span class='cards'>卡包</span>
             <span class='all' id='all_card' bindtap="showCards">全部></span>
         </view>
+        <!-- 卡包为空时，显示无可使用的卡 -->
+        
         <!-- 联程卡的显示 -->
         <view class='card limit' wx:for="{{history0}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '联程卡'}}" bindtap="detail">
                 <view class='parkname'>{{order.scene}}</view>
@@ -29,16 +30,15 @@
                 <view>有效期：{{order.validtime}}</view>
         </view>
     </view>
-    <!-- <view wx:else>
-        出错了
-    </view> -->
-    <!-- 票包为空，不显示票 -->
+
     <!-- 票包栏 -->
     <view>
         <view class='title'>
             <span class='cards'>票包</span>
             <span class='all' id='all_card' bindtap="showHis">全部></span>
         </view>
+        <!-- 票包栏为空时，显示无可使用的票 -->
+
         <view class="tickets_list" wx:for="{{history0}}" wx:for-item="order" id="{{order.id}}" wx:if="{{order.type == '单项票'}}" wx:key="id" bindtap="detail">
             <view class="top">
                 <span class="type">{{order.type}}</span>

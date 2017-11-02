@@ -3,45 +3,36 @@
 <view style="height:40px;visibility:hidden"></view>
 <view class="paybody">
 
-  <!--头-->
-  <view class="pay_head">
-    <!--占位-->
-    <view style="height:15px;visibility:hidden"></view>
-    <view class="pay_head_1">购票账号:{{myPhone}}</view>
-    <view class="pay_head_2">游玩项目:{{itemName}}</view>
-  </view>
-
-  <view class="pay_info">
-    <!--信息-->
-    <view class="pay_info_info" wx:for="{{myTickets}}" wx:for-item="ticket" wx:key="id">
-      <view class="pay_info_name">{{ticket.label}}</view>
-      <view class="pay_info_pricenum">
-
-        <view class="pay_info_price">￥{{ticket.price}}</view> 
-        <view class="pay_info_number">{{ticket.number}}张</view>
-      </view>
+    <!--头-->
+    <view class="pay_head">
+            <!--占位-->
+            <view style="height:15px"></view>
+            <view class="pay_head_1">购票账号:{{myPhone}}</view>
+            <view class="pay_head_2">游玩项目:{{itemName}}</view>
+            <!--信息-->
+            <view class="pay_info_info" wx:for="{{myTickets}}" wx:for-item="ticket" wx:key="id">
+                <view class="pay_info_name">{{ticket.label}}</view>
+                <view class="pay_info_pricenum">
+                    <view class="pay_info_price">￥{{ticket.price}}</view>
+                    <view class="pay_info_number">{{ticket.number}}张</view>
+                </view>
+            </view>
     </view>
 
-  
-    <view class="pay_tail">
-      <view class="pay_tail_total">
-        <text>总额￥{{totalPrice}}</text>
-      </view>
-
+    <view class="pay_info">
+        <view class="pay_tail_total">
+            <text>总额￥{{totalPrice}}</text>
+        </view>
+        <view class="pay_tail_total">
+            <text>折扣-{{discount}}</text>
+        </view>
+        <view class="pay_tail_total">
+            <text>实付￥{{payPrice}}</text>
+        </view>
     </view>
-    <view class="pay_tail_total">
-      <text>折扣-{{discount}}</text>
-    </view>
-
-    <view class="pay_tail_total">
-      <text>特惠价￥{{payPrice}}</text>
-    </view>
-    
-  </view>
 
 </view>
 
 <!-- <view class="bottom"> -->
-  <button catchtap="pay" type="primary" class="pay">付款</button>
-
+<button catchtap="pay" type="primary" class="pay">付款</button>
 <!-- </view> -->
