@@ -23,171 +23,181 @@ Page({
     union_tic: []
   },
 
-  onLoad: function () {
-    var that = this
-    that.data.order = app.globalData.orderid
-    var orderid = app.globalData.orderid
-    //   console.log(orderid)
-    //  console.log(app.globalData.userid)
-    wx.request({
-      url: app.globalData.rootUrl + "/order/detail",
-      data: {
-        "order_id": orderid,
-        "visitor_id": app.globalData.userid,
-        "scene_id": app.globalData.channel_id,
-        "appname": app.globalData.appname,
-        "device": app.globalData.device
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      method: "POST",
-      success: function (res) {
-        console.log(res)
-        var zifuchuan = 'uid=' + app.globalData.userid + '&sid=' + res.data.order.scene_id + '&cid='+res.data.order.channel_id +'&oid='+ res.data.order.id
-        // console.log(zifuchuan)
-        wxbarcode.qrcode('qrcode', zifuchuan, 350, 350)//生成二维码
-        var union = []
-        var order = res.data.order
-        var temp = order.type
-        // console.log(temp)
-        // console.log(res.data)
+  onLoad: function() {
+      var that = this
+      that.data.order = app.globalData.orderid
+      var orderid = app.globalData.orderid
+      //   console.log(orderid)
+      //  console.log(app.globalData.userid)
+      wx.request({
+          url: app.globalData.rootUrl + "/order/detail",
+          data: {
+              "order_id": orderid,
+              "visitor_id": app.globalData.userid,
+              "scene_id": app.globalData.channel_id,
+              "appname": app.globalData.appname,
+              "device": app.globalData.device
+          },
+          header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+          },
+          method: "POST",
+          success: function(res) {
+              console.log(res)
+              var zifuchuan = 'uid=' + app.globalData.userid + '&sid=' + res.data.order.scene_id + '&cid=' + res.data.order.channel_id + '&oid=' + res.data.order.id
+              // console.log(zifuchuan)
+              wxbarcode.qrcode('qrcode', zifuchuan, 350, 350) //生成二维码
+              var union = []
+              var order = res.data.order
+              var temp = order.type
+              // console.log(temp)
+              // console.log(res.data)
 
-        // 0-单项票 1-联程卡 2-次卡 3-期限卡
-        if(temp == 0){
-          that.setData({
-            channel_id: order.channel_id,
-            scene: order.scene,
-            channel: order.channel,
-            tickets: order.tickets,
-            money: order.money,
-            order: order.id,
-            // status: order.status,
-            // is_coupon: order.is_coupon,
-            type: order.type,
-            tickets_count: order.tickets_count
-          })
-      } else if (temp == 1) {
-          that.setData({
-            channel_id: order.channel_id,
-            scene: order.scene,
-            channel: order.channel,
-            tickets: order.tickets,
-            money: order.money,
-            order: order.id,
-            // status: order.status,
-            // is_coupon: order.is_coupon,
-            type: order.type,
-            tickets_count: order.tickets_count
-          })
-      } else if (temp == 2) {
-          that.setData({
-            channel_id: order.channel_id,
-            scene: order.scene,
-            channel: order.channel,
-            tickets: order.tickets,
-            money: order.money,
-            order: order.id,
-            // status: order.status,
-            // is_coupon: order.is_coupon,
-            type: order.type,
-            tickets_count: order.tickets_count
-          })
-      } else if (temp == 3) {
-          that.setData({
-            channel_id: order.channel_id,
-            scene: order.scene,
-            channel: order.channel,
-            tickets: order.tickets,
-            money: order.money,
-            order: order.id,
-            // status: order.status,
-            // is_coupon: order.is_coupon,
-            type: order.type,
-            tickets_count: order.tickets_count
-          })
-      }
-
-        app.globalData.scene_id = order.scene_id
-        // that.data.is_coupon = order.is_coupon
-        that.data.type = order.type
-        // 通道ID
-        var ar = order.channel
-        // console.log(ar)
-        // 景区ID
-        var cr = order.scene
-        // console.log(cr)
-        // 订单ID
-        var dr = order.id
-        // console.log(dr)
-        var br = order.used_channel
-        if (order.type == 0) {
-          ar = ar.split(",")
-          if (br == "") {
-            for (var i = 0; i < ar.length; i++) {
-              var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
-              union[i] = JSON.parse(x)
-              console.log(union[i])
-            }
-          }
-
-          var patten = new RegExp(",")
-        //   console.log(patten)
-          if (patten.test(br)) {
-            that.setData({
-              refund: "使用中",
-              refund_act:""
-            })
-            br = br.split(",")
-            // console.log(ar)
-            // console.log(br)
-            // console.log('进行中')
-            for (var i = 0; i < ar.length; i++) {
-              var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
-              union[i] = JSON.parse(x)
-              for (var j = 0; j < br.length; j++) {
-                if (ar[i] == br[j]) {
-                  var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"已使用","hide":1}'
-                  union[i] = JSON.parse(x)
-                }
+              // 0-单项票 1-联程卡 2-次卡 3-期限卡
+              if (temp == 0) {
+                  that.setData({
+                      channel_id: order.channel_id,
+                      scene: order.scene,
+                      channel: order.channel,
+                      tickets: order.tickets,
+                      money: order.money,
+                      order: order.id,
+                      // status: order.status,
+                      // is_coupon: order.is_coupon,
+                      type: order.type,
+                      tickets_count: order.tickets_count
+                  })
+              } else if (temp == 1) {
+                  that.setData({
+                      channel_id: order.channel_id,
+                      scene: order.scene,
+                      channel: order.channel,
+                      tickets: order.tickets,
+                      money: order.money,
+                      order: order.id,
+                      // status: order.status,
+                      // is_coupon: order.is_coupon,
+                      type: order.type,
+                      tickets_count: order.tickets_count
+                  })
+              } else if (temp == 2) {
+                  that.setData({
+                      channel_id: order.channel_id,
+                      scene: order.scene,
+                      channel: order.channel,
+                      tickets: order.tickets,
+                      money: order.money,
+                      order: order.id,
+                      // status: order.status,
+                      // is_coupon: order.is_coupon,
+                      type: order.type,
+                      tickets_count: order.tickets_count
+                  })
+              } else if (temp == 3) {
+                  that.setData({
+                      channel_id: order.channel_id,
+                      scene: order.scene,
+                      channel: order.channel,
+                      tickets: order.tickets,
+                      money: order.money,
+                      order: order.id,
+                      // status: order.status,
+                      // is_coupon: order.is_coupon,
+                      type: order.type,
+                      tickets_count: order.tickets_count
+                  })
               }
-            }
-          }
 
-          else {
-            for (var i = 0; i < ar.length; i++) {
-              var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
-              union[i] = JSON.parse(x)
-              if (ar[i] == br) {
-                var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"已使用","hide":1}'
-                union[i] = JSON.parse(x)
-                that.setData({
-                  refund: "使用中",
-                  refund_act:""
-                })
+              app.globalData.scene_id = order.scene_id
+              // that.data.is_coupon = order.is_coupon
+              that.data.type = order.type
+              // 通道ID
+              var ar = order.channel
+              // console.log(ar)
+              // 景区ID
+              var cr = order.scene
+              // console.log(cr)
+              // 订单ID
+              var dr = order.id
+              // console.log(dr)
+              var br = order.used_channel
+            //   单项票时使用状态的判断
+              if (order.type == 0) {
+                  ar = ar.split(",")
+                  if (br == "") {
+                      for (var i = 0; i < ar.length; i++) {
+                          var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
+                          union[i] = JSON.parse(x)
+                          console.log(union[i])
+                      }
+                  }
+
+                  var patten = new RegExp(",")
+                  //   console.log(patten)
+                  if (patten.test(br)) {
+                      that.setData({
+                          refund: "使用中",
+                          refund_act: ""
+                      })
+                      br = br.split(",")
+                      // console.log(ar)
+                      // console.log(br)
+                      // console.log('进行中')
+                      for (var i = 0; i < ar.length; i++) {
+                          var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
+                          union[i] = JSON.parse(x)
+                          for (var j = 0; j < br.length; j++) {
+                              if (ar[i] == br[j]) {
+                                  var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"已使用","hide":1}'
+                                  union[i] = JSON.parse(x)
+                              }
+                          }
+                      }
+                  } else {
+                      for (var i = 0; i < ar.length; i++) {
+                          var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
+                          union[i] = JSON.parse(x)
+                          if (ar[i] == br) {
+                              var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"已使用","hide":1}'
+                              union[i] = JSON.parse(x)
+                              that.setData({
+                                  refund: "使用中",
+                                  refund_act: ""
+                              })
+                          }
+                      }
+                  }
+                  console.log(union)
+                  that.setData({
+                      channel_id: order.channel_id,
+                      scene: order.scene,
+                      channel: ar,
+                      tickets: order.tickets,
+                      money: order.money,
+                      tickets_count: order.tickets_count,
+                      order: order.id,
+                      type: order.type,
+                      // status: order.status,
+                      // is_coupon: order.is_coupon,
+                      use_status: order.status,
+                      union_tic: union
+                  })
               }
-            }
+            //   联程卡时使用状态的判断
+            // else if (order.type == 1) {
+            //
+            //   }
+            //   次卡时使用状态的判断
+            // else if (order.type == 2) {
+            //
+            // }
+            //   期限卡时使用状态的判断
+            // else if (order.type == 3) {
+            //
+            // }
           }
-          console.log(union)
-          that.setData({
-            channel_id: order.channel_id,
-            scene: order.scene,
-            channel: ar,
-            tickets: order.tickets,
-            money: order.money,
-            tickets_count: order.tickets_count,
-            order: order.id,
-            type: order.type,
-            // status: order.status,
-            // is_coupon: order.is_coupon,
-            use_status: order.status,
-            union_tic: union
-          })
-        }
-      }
-    })
+      })
   },
-
   goback: function () {
     wx.redirectTo({
       url: '../zhuye2/zhuye2'
