@@ -28,7 +28,6 @@ Page({
     })
   },
 
-
   //扫描二维码，获取游乐园信息编码及通道编码
   scanqrcode: function () {
     var that = this
@@ -131,8 +130,18 @@ Page({
 
   },
 
-
-
+  //查看门票详情
+  detail: function (e) {
+    var that = this
+    console.log(e)
+    // console.log(e.currentTarget.id)
+    // console.log(this)
+    var orderid = e.currentTarget.id
+    app.globalData.orderid = orderid
+    wx.navigateTo({
+      url: '../confirm/confirm'
+    })
+  },
 
   //选择订单进行检票
   checkin: function (e) {
