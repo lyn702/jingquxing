@@ -29,6 +29,11 @@
                 <view class='time_limit'>{{order.type}}</view>
                 <view>有效期：{{order.validtime}}</view>
         </view>
+        <!-- 使用中联程卡的显示 -->
+
+        <!-- 使用中次卡的显示 -->
+
+        <!-- 使用中期限卡的显示 -->
     </view>
 
     <!-- 票包栏 -->
@@ -38,12 +43,6 @@
             <span class='all' id='all_card' bindtap="showHis">全部></span>
         </view>
         <!-- 票包栏为空时，显示无可使用的票 -->
-        <!-- <view>
-            <view wx:if="{{history0.length == 0}}">
-                无可使用的票
-            </view>
-            <view wx:else>出错了</view>
-        </view> -->
 
         <view class="tickets_list" wx:for="{{history0}}" wx:for-item="order" id="{{order.id}}" wx:if="{{order.type == '单项票'}}" wx:key="id" bindtap="detail">
             <view class="top">
@@ -67,68 +66,6 @@
                     <button>去检票</button>
                 </view>
             </view>
-        </view>
-    </view>
-
-    <!-- 未使用的联程票门票列表 -->
-    <view class="ticket " wx:for="{{order.tickets}}" wx:for-item="ticket" wx:key="id" wx:if="{{order.is_coupon=='1'}}">
-        <view class='t_left'>
-            <view>{{order.scene}}{{ticket.label}}
-                <text class="ticket_num">{{ticket.num}}张</text>
-            </view>
-            <view class=''>项目包含：{{order.channel}}</view>
-
-            <view class="buyday">
-                <text>购票日期：{{order.boughtdate}}</text>
-            </view>
-        </view>
-        <view class='t_right'>
-            <button>去检票</button>
-        </view>
-    </view>
-
-    <!-- 使用中的门票列表 -->
-    <view class="tickets_list" wx:for="{{history1}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.is_coupon=='1'}}" bindtap="detail">
-        <view class="top">
-            <span class="type">{{order.type}}</span>
-            <span class="status">{{order.status}}</span>
-        </view>
-        <view class='line'></view>
-        <view class="ticket " wx:for="{{order.tickets}}" wx:for-item="ticket" wx:key="id">
-            <view class='t_left'>
-                <view>{{order.scene}}{{ticket.label}}
-                    <text class="ticket_num" style='font:13pt red '>{{ticket.num}}张</text>
-                </view>
-                <view class='items'>项目包含：{{order.channel}}</view>
-
-                <view class="buyday">
-                    <text>购票日期：{{order.boughtdate}}</text>
-                    <!-- <text class="valietime">入场时间：{{order.validtime}}</text> -->
-                </view>
-            </view>
-            <view class='t_right'>
-                <button>
-        去检票
-      </button>
-            </view>
-        </view>
-    </view>
-
-    <!-- 使用过的门票记录 -->
-    <view class="tickets_list" wx:for="{{history2}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{showHistory=='visible'}}">
-        <view class="top">
-            <span class="type">{{order.type}}</span>
-            <span class="status">{{order.status}}</span>
-        </view>
-        <view class='line'></view>
-        <view class="ticket " wx:for="{{order.tickets}}" wx:for-item="ticket" wx:key="id">{{order.scene}}{{ticket.label}}
-            <text class="ticket_num">{{ticket.num}}张</text>
-        </view>
-        <view class=''>项目包含：{{order.channel}}</view>
-
-        <view class="buyday">
-            <text>购票日期：{{order.boughtdate}}</text>
-            <text class="usetime">使用时间：{{order.usetime}}</text>
         </view>
     </view>
 </view>

@@ -18,6 +18,7 @@ Page({
     channel_id: 0,
     order: "",
     type: "",
+    // status: "",
     use_status: "未使用",
     union_tic: []
   },
@@ -61,6 +62,7 @@ Page({
             tickets: order.tickets,
             money: order.money,
             order: order.id,
+            // status: order.status,
             // is_coupon: order.is_coupon,
             type: order.type,
             tickets_count: order.tickets_count
@@ -73,6 +75,7 @@ Page({
             tickets: order.tickets,
             money: order.money,
             order: order.id,
+            // status: order.status,
             // is_coupon: order.is_coupon,
             type: order.type,
             tickets_count: order.tickets_count
@@ -85,6 +88,7 @@ Page({
             tickets: order.tickets,
             money: order.money,
             order: order.id,
+            // status: order.status,
             // is_coupon: order.is_coupon,
             type: order.type,
             tickets_count: order.tickets_count
@@ -97,6 +101,7 @@ Page({
             tickets: order.tickets,
             money: order.money,
             order: order.id,
+            // status: order.status,
             // is_coupon: order.is_coupon,
             type: order.type,
             tickets_count: order.tickets_count
@@ -172,8 +177,9 @@ Page({
             money: order.money,
             tickets_count: order.tickets_count,
             order: order.id,
-            // is_coupon: order.is_coupon,
             type: order.type,
+            // status: order.status,
+            // is_coupon: order.is_coupon,
             use_status: order.status,
             union_tic: union
           })
