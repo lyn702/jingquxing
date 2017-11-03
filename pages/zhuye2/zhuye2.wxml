@@ -10,7 +10,7 @@
             <span class='all' id='all_card' bindtap="showCards">全部></span>
         </view>
         <!-- 卡包为空时，显示无可使用的卡 -->
-        
+
         <!-- 联程卡的显示 -->
         <view class='card limit' wx:for="{{history0}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '联程卡'}}" bindtap="detail">
                 <view class='parkname'>{{order.scene}}</view>
@@ -38,6 +38,12 @@
             <span class='all' id='all_card' bindtap="showHis">全部></span>
         </view>
         <!-- 票包栏为空时，显示无可使用的票 -->
+        <!-- <view>
+            <view wx:if="{{history0.length == 0}}">
+                无可使用的票
+            </view>
+            <view wx:else>出错了</view>
+        </view> -->
 
         <view class="tickets_list" wx:for="{{history0}}" wx:for-item="order" id="{{order.id}}" wx:if="{{order.type == '单项票'}}" wx:key="id" bindtap="detail">
             <view class="top">

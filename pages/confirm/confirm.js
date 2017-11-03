@@ -17,6 +17,7 @@ Page({
     tickets_count: 0,
     channel_id: 0,
     order: "",
+    type: "",
     use_status: "未使用",
     union_tic: []
   },
@@ -171,7 +172,8 @@ Page({
             money: order.money,
             tickets_count: order.tickets_count,
             order: order.id,
-            is_coupon: order.is_coupon,
+            // is_coupon: order.is_coupon,
+            type: order.type,
             use_status: order.status,
             union_tic: union
           })
