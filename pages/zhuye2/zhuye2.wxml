@@ -30,10 +30,23 @@
                 <view>有效期：{{order.validtime}}</view>
         </view>
         <!-- 使用中联程卡的显示 -->
-
+        <view class='card limit' wx:for="{{history1}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '联程卡'}}" bindtap="detail">
+                <view class='parkname'>{{order.scene}}</view>
+                <view class='time_limit'>{{order.type}}</view>
+                <view>有效期：长期有效</view>
+        </view>
         <!-- 使用中次卡的显示 -->
-
+        <view class='card limit' wx:for="{{history1}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '次卡'}}" bindtap="detail">
+                <view class='parkname'>{{order.scene}}</view>
+                <view class='time_limit'>{{order.type}}</view>
+                <view>有效期：长期有效</view>
+        </view>
         <!-- 使用中期限卡的显示 -->
+        <view class='card limit' wx:for="{{history1}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '期限卡'}}" bindtap="detail">
+                <view class='parkname'>{{order.scene}}</view>
+                <view class='time_limit'>{{order.type}}</view>
+                <view>有效期：{{order.validtime}}</view>
+        </view>
     </view>
 
     <!-- 票包栏 -->

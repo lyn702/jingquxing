@@ -1,80 +1,90 @@
 /* pages/buyticket/buyticket.wxss */
 
 page {
-  height: 100%;
-  background-color: #eee;
-  font-size: 14pt;
-  padding: 0;
+    height: 100%;
+    background-color: #eee;
+    font-size: 14pt;
+    padding: 0;
 }
 
 .top {
-  width: 90%;
-  padding: 2%;
-  margin-left: 3%;
-  margin-top:20px;
-  background-color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 2%;
+    margin-left: 3%;
+    margin-top:20px;
+    background-color: white;
 }
 
 .time {
-  font-size: 24pt;
-  color: #38404a;
-  display: inline-block;
-  width:40%;
-  font-weight: bold;
-  line-height: 28px;
-  margin:20px auto;
-  text-align: center;
+    font-size: 24pt;
+    color: #38404a;
+    display: inline-block;
+    width:40%;
+    font-weight: bold;
+    line-height: 28px;
+    margin:20px auto;
+    text-align: center;
 }
 
 .day {
-  display: inline-block;
-  font-size: 16pt;
-  color: #525e6f;
-  width:50%;
-  margin:10px auto;
-  text-align: center;
+    display: inline-block;
+    font-size: 16pt;
+    color: #525e6f;
+    width:50%;
+    margin:10px auto;
+    text-align: center;
 }
 
 .ticket {
-  width: 90%;
-  padding: 2%;
-  margin-left: 3%;
-  margin-top:20px;
-  background-color: white;
+    width: 90%;
+    padding: 2%;
+    margin-left: 3%;
+    margin-top:20px;
+    background-color: white;
 }
 
-.parkname {
-  font-size: 16pt;
-  font-weight: bold;
-  margin-top: 8px;
-  
-}
+/*.parkname {
+    font-size: 16pt;
+    font-weight: bold;
+    margin-top: 8px;
+}*/
 
-.passname {
-  font-size: 16pt;
-  color: #525e6f;
-  margin-top: 8px;
+.classname {
+    margin-top: 5%;
 }
 
 .ticketinfo {
-  margin-top: 5%;
-  padding: 10rpx;
-  margin-top: 8px;
+    margin-top: 5%;
+}
+
+.ticketList {
+    padding: 10px;
+    font-size: 18px;
+    color: #5E5E5E;
+    border-style: solid;
+    border-width: 1px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: rgba(153, 153, 153, 1);
 }
 
 .userinfo {
-  margin-top: 10rpx;
-  font-size: 14pt;
-  color: #aaa;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 18px;
+    color: #949494;
 }
 
 #confirm {
-  position: fixed;
-  top:86%;
-  left:5%;
-  font-family: 黑体;
-  width: 90%;
-  font-size: 14pt;
-  /* background: #ccff00;
-  color:black; */
+    position: fixed;
+    top:86%;
+    left:5%;
+    font-family: 黑体;
+    width: 90%;
+    font-size: 14pt;
+    /* background: #ccff00;
+    color:black; */
 }

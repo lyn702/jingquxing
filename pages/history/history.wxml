@@ -1,24 +1,22 @@
 <view class="container">
-<view class='empty'wx:if="{{empty}}">
-<image src='../../image/empty.png'  ></image>
-<view>使用记录为空</view>
+    <view class='empty' wx:if="{{empty}}">
+        <image src='../../image/empty.png'></image>
+        <view>使用记录为空</view>
+    </view>
+    <view class="tickets_list" wx:for="{{history2}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '单项票'}}">
+        <view class="top">
+            <span class="type">{{order.type}}</span>
+            <span class="status">{{order.status}}</span>
+        </view>
+        <view class='line'></view>
+        <view class="ticket " wx:for="{{order.tickets}}" wx:for-item="ticket" wx:key="id">{{order.scene}}{{ticket.label}}
+            <text class="ticket_num">{{ticket.num}}张</text>
+        </view>
+        <view class='parkname'>项目包含：{{order.channel}}</view>
+
+        <view class="buyday">
+            <text>购票日期：{{order.boughtdate}}</text>
+            <text class="usetime">使用时间：{{order.usetime}}</text>
+        </view>
+    </view>
 </view>
-  <view class="tickets_list" wx:for="{{history2}}" wx:for-item="order" id="{{order.id}}" wx:key="id" >
-
-    <view class="top">
-      <span class="type">{{order.type}}</span>
-      <span class="status">{{order.status}}</span>
-    </view>
-    <view class='line'></view>
-    <view class="ticket " wx:for="{{order.tickets}}" wx:for-item="ticket" wx:key="id">{{order.scene}}{{ticket.label}}
-      <text class="ticket_num">{{ticket.num}}张</text>
-    </view>
-    <view class='parkname'>项目包含：{{order.channel}}</view>
-
-    <view class="buyday">
-      <text>购票日期：{{order.boughtdate}}</text>
-      <text class="usetime">使用时间：{{order.usetime}}</text>
-    </view>
-  </view>
-</view>
-

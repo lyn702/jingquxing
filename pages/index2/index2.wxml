@@ -24,18 +24,6 @@
                         <image src="../../image/11.png"></image>
                     </view>
                 </view>
-                <!-- 次卡加号没用 -->
-                <view class='add_t' id="{{ticket.id}}" wx:if="{{ticket.type == '2'}}">
-                    <view class='add'>
-                        <image src="../../image/11.png"></image>
-                    </view>
-                </view>
-                <!-- 期限卡加号没用 -->
-                <view class='add_t' id="{{ticket.id}}" wx:if="{{ticket.type == '3'}}">
-                    <view class='add'>
-                        <image src="../../image/11.png"></image>
-                    </view>
-                </view>
             </view>
             <view class='ticket info'>
                 <view class='detail'>

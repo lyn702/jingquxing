@@ -27,8 +27,5 @@ Page({
     that.setData({
       history2: app.globalData.history
     })
-   
-
-    
   }
 })

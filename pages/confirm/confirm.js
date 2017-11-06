@@ -184,20 +184,194 @@ Page({
                   })
               }
             //   联程卡时使用状态的判断
-            // else if (order.type == 1) {
-            //
-            //   }
-            //   次卡时使用状态的判断
-            // else if (order.type == 2) {
-            //
-            // }
+            else if (order.type == 1) {
+                ar = ar.split(",")
+                if (br == "") {
+                    for (var i = 0; i < ar.length; i++) {
+                        var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
+                        union[i] = JSON.parse(x)
+                        console.log(union[i])
+                    }
+                }
+
+                var patten = new RegExp(",")
+                //   console.log(patten)
+                if (patten.test(br)) {
+                    that.setData({
+                        use_status: "已使用",
+                        refund_act: ""
+                    })
+                    br = br.split(",")
+                    // console.log(ar)
+                    // console.log(br)
+                    // console.log('进行中')
+                    for (var i = 0; i < ar.length; i++) {
+                        var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
+                        union[i] = JSON.parse(x)
+                        for (var j = 0; j < br.length; j++) {
+                            if (ar[i] == br[j]) {
+                                var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"已使用","hide":1}'
+                                union[i] = JSON.parse(x)
+                            }
+                        }
+                    }
+                } else {
+                    for (var i = 0; i < ar.length; i++) {
+                        var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
+                        union[i] = JSON.parse(x)
+                        if (ar[i] == br) {
+                            var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"已使用","hide":1}'
+                            union[i] = JSON.parse(x)
+                            that.setData({
+                                use_status: "使用中",
+                                refund_act: ""
+                            })
+                        }
+                    }
+                }
+                console.log(union)
+                that.setData({
+                    channel_id: order.channel_id,
+                    scene: order.scene,
+                    channel: ar,
+                    tickets: order.tickets,
+                    money: order.money,
+                    tickets_count: order.tickets_count,
+                    order: order.id,
+                    type: order.type,
+                    // status: order.status,
+                    // is_coupon: order.is_coupon,
+                    use_status: order.status,
+                    union_tic: union
+                  })
+              }
+            //   次卡时使用状态的判断（已使用判断存在问题）
+            else if (order.type == 2) {
+                ar = ar.split(",")
+                if (br == "") {
+                    for (var i = 0; i < ar.length; i++) {
+                        var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
+                        union[i] = JSON.parse(x)
+                        console.log(union[i])
+                    }
+                }
+                var patten = new RegExp(",")
+                //   console.log(patten)
+                if (patten.test(br)) {
+                    that.setData({
+                        use_status: "使用中",
+                        refund_act: ""
+                    })
+                    br = br.split(",")
+                    // console.log(ar)
+                    // console.log(br)
+                    // console.log('进行中')
+                    // for (var i = 0; i < ar.length; i++) {
+                    //     var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
+                    //     union[i] = JSON.parse(x)
+                    //     for (var j = 0; j < br.length; j++) {
+                    //         if (ar[i] == br[j]) {
+                    //             var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"已使用","hide":1}'
+                    //             union[i] = JSON.parse(x)
+                    //         }
+                    //     }
+                    // }
+                } else {
+                    for (var i = 0; i < ar.length; i++) {
+                        var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
+                        union[i] = JSON.parse(x)
+                        if (ar[i] == br) {
+                            var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"已使用","hide":1}'
+                            union[i] = JSON.parse(x)
+                            that.setData({
+                                use_status: "使用中",
+                                refund_act: ""
+                            })
+                        }
+                    }
+                }
+                console.log(union)
+                that.setData({
+                    channel_id: order.channel_id,
+                    scene: order.scene,
+                    channel: ar,
+                    tickets: order.tickets,
+                    money: order.money,
+                    tickets_count: order.tickets_count,
+                    order: order.id,
+                    type: order.type,
+                    // status: order.status,
+                    // is_coupon: order.is_coupon,
+                    use_status: order.status,
+                    union_tic: union
+                })
+            }
             //   期限卡时使用状态的判断
-            // else if (order.type == 3) {
-            //
-            // }
+            else if (order.type == 3) {
+                ar = ar.split(",")
+                if (br == "") {
+                    for (var i = 0; i < ar.length; i++) {
+                        var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
+                        union[i] = JSON.parse(x)
+                        console.log(union[i])
+                    }
+                }
+
+                var patten = new RegExp(",")
+                //   console.log(patten)
+                if (patten.test(br)) {
+                    that.setData({
+                        use_status: "使用中",
+                        refund_act: ""
+                    })
+                    br = br.split(",")
+                    // console.log(ar)
+                    // console.log(br)
+                    // console.log('进行中')
+                    for (var i = 0; i < ar.length; i++) {
+                        var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
+                        union[i] = JSON.parse(x)
+                        for (var j = 0; j < br.length; j++) {
+                            if (ar[i] == br[j]) {
+                                var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"已使用","hide":1}'
+                                union[i] = JSON.parse(x)
+                            }
+                        }
+                    }
+                } else {
+                    for (var i = 0; i < ar.length; i++) {
+                        var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
+                        union[i] = JSON.parse(x)
+                        if (ar[i] == br) {
+                            var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"已使用","hide":1}'
+                            union[i] = JSON.parse(x)
+                            that.setData({
+                                use_status: "使用中",
+                                refund_act: ""
+                            })
+                        }
+                    }
+                }
+                console.log(union)
+                that.setData({
+                    channel_id: order.channel_id,
+                    scene: order.scene,
+                    channel: ar,
+                    tickets: order.tickets,
+                    money: order.money,
+                    tickets_count: order.tickets_count,
+                    order: order.id,
+                    type: order.type,
+                    // status: order.status,
+                    // is_coupon: order.is_coupon,
+                    use_status: order.status,
+                    union_tic: union
+                })
+            }
           }
       })
   },
+
   goback: function () {
     wx.redirectTo({
       url: '../zhuye2/zhuye2'
@@ -273,7 +447,6 @@ Page({
       }
     })
   },
-
 
   checkin: function () {
     var that = this
