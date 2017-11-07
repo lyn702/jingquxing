@@ -18,6 +18,8 @@ Page({
     channel_id: 0,
     order: "",
     type: "",
+    data:"",
+    time:"",
     // status: "",
     use_status: "未使用",
     union_tic: []
@@ -75,6 +77,8 @@ Page({
                       tickets: order.tickets,
                       money: order.money,
                       order: order.id,
+                      date: order.usedate,
+                      time: order.usetime,
                       // status: order.status,
                       // is_coupon: order.is_coupon,
                       type: order.type,
@@ -88,6 +92,8 @@ Page({
                       tickets: order.tickets,
                       money: order.money,
                       order: order.id,
+                      date: order.usedate,
+                      time: order.usetime,
                       // status: order.status,
                       // is_coupon: order.is_coupon,
                       type: order.type,
@@ -101,6 +107,8 @@ Page({
                       tickets: order.tickets,
                       money: order.money,
                       order: order.id,
+                      date: order.usedate,
+                      time: order.usetime,
                       // status: order.status,
                       // is_coupon: order.is_coupon,
                       type: order.type,
@@ -113,14 +121,9 @@ Page({
               that.data.type = order.type
               // 通道ID
               var ar = order.channel
-              // console.log(ar)
-              // 景区ID
-              var cr = order.scene
-              // console.log(cr)
-              // 订单ID
-              var dr = order.id
-              // console.log(dr)
+              console.log(ar)
               var br = order.used_channel
+              console.log(br)
             //   单项票时使用状态的判断
               if (order.type == 0) {
                   ar = ar.split(",")
@@ -263,9 +266,9 @@ Page({
                         refund_act: ""
                     })
                     br = br.split(",")
-                    // console.log(ar)
-                    // console.log(br)
-                    // console.log('进行中')
+                    console.log(ar)
+                    console.log(br)
+                    console.log('进行中')
                     // for (var i = 0; i < ar.length; i++) {
                     //     var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"未使用","hide":0}'
                     //     union[i] = JSON.parse(x)
@@ -284,7 +287,7 @@ Page({
                             var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"已使用","hide":1}'
                             union[i] = JSON.parse(x)
                             that.setData({
-                                use_status: "使用中",
+                                use_status: "已使用",
                                 refund_act: ""
                             })
                         }

@@ -13,6 +13,13 @@ page {
   padding-left: 20rpx;
 }
 
+.title {
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    color:#888;
+    font-size:12pt;
+}
+
 .pay_head {
   width: 750rpx;
   height: 30px;
