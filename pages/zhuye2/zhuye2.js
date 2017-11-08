@@ -16,6 +16,9 @@ Page({
     history_1: [],
     history_2: [],
     validtime: "",
+    tlist: [],
+    tlist1: [],
+    tlist2: [],
     usedate: "",
     showHistory: "hidden",
     btn: app.globalData.btn,
@@ -413,10 +416,10 @@ Page({
             }
 
             that.data.history0 = tlist.reverse() //未使用的门票
-            console.log(that.data.history0)
+            // console.log(that.data.history0)
 
             that.data.history1 = tlist1.reverse()//使用中的门票
-            console.log(that.data.history1)
+            // console.log(that.data.history1)
 
 
             that.data.history2 = tlist2.reverse()//已使用的门票
@@ -427,6 +430,7 @@ Page({
               history2: tlist2,
               history1: tlist1
             })
+            console.log(that.data.history0)
             if ((tlist.length < 1) && (tlist1.length < 1)) {
               that.setData({
                 empty: true

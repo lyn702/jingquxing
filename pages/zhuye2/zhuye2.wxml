@@ -53,27 +53,28 @@
             <span class='cards'>票包</span>
             <span class='all' id='all_card' bindtap="showHis">全部></span>
         </view>
-
-        <view class="tickets_list" wx:for="{{history0}}" wx:for-item="order" id="{{order.id}}" wx:if="{{order.type == '单项票'}}" wx:key="id" bindtap="detail">
-            <view class="top">
-                <span class="type">{{order.type}}</span>
-                <span class="status">{{order.status}}</span>
-            </view>
-            <view class='line'></view>
-            <view class="ticket ">
-                <view class='t_left'>
-                    <view>{{order.scene}}</view>
-                    <view>
-                        <span class="ticket_num" wx:for="{{order.tickets}}" wx:for-item="ticket" wx:key="id">{{order.channel}}</span>
-                        <span class='number' wx:for="{{order.tickets}}" wx:for-item="ticket" wx:key="id">{{ticket.num}}人</span>
-                    </view>
-                    <view class="buyday">
-                        <text>购票日期：{{order.boughtdate}}</text>
-                        <!-- <text class="valietime">入场时间：{{order.validtime}}</text> -->
-                    </view>
+        <view>
+            <view class="tickets_list" wx:for="{{history0}}" wx:for-item="order" id="{{order.id}}" wx:if="{{order.type == '单项票'}}" wx:key="id" bindtap="detail">
+                <view class="top">
+                    <span class="type">{{order.type}}</span>
+                    <span class="status">{{order.status}}</span>
                 </view>
-                <view class='t_right'>
-                    <button>去检票</button>
+                <view class='line'></view>
+                <view class="ticket ">
+                    <view class='t_left'>
+                        <view>{{order.scene}}</view>
+                        <view>
+                            <span class="ticket_num" wx:for="{{order.tickets}}" wx:for-item="ticket" wx:key="id">{{order.channel}}</span>
+                            <span class='number' wx:for="{{order.tickets}}" wx:for-item="ticket" wx:key="id">{{ticket.num}}人</span>
+                        </view>
+                        <view class="buyday">
+                            <text>购票日期：{{order.boughtdate}}</text>
+                            <!-- <text class="valietime">入场时间：{{order.validtime}}</text> -->
+                        </view>
+                    </view>
+                    <view class='t_right'>
+                        <button>去检票</button>
+                    </view>
                 </view>
             </view>
         </view>
