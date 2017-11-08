@@ -48,7 +48,7 @@
     </view>
 
     <!-- 票包栏 -->
-    <view>
+    <view >
         <view class='title'>
             <span class='cards'>票包</span>
             <span class='all' id='all_card' bindtap="showHis">全部></span>
@@ -77,8 +77,12 @@
                     </view>
                 </view>
             </view>
+            <!-- <view class="tickets_list" wx:else id="{{order.id}}" bindtap="detail">
+                    什么都没有
+            </view> -->
         </view>
     </view>
+
 </view>
 
 
@@ -88,8 +92,3 @@
         <text id="test">{{btn}}</text>
     </view>
 </view>
-<!-- <view class="history" bindtap='showHis'>
-  <image class="his" src="../../image/history.png"></image>
-
-
-</view> -->
