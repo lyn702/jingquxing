@@ -274,7 +274,7 @@ Page({
                     //     union[i] = JSON.parse(x)
                     //     for (var j = 0; j < br.length; j++) {
                     //         if (ar[i] == br[j]) {
-                    //             var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"已使用","hide":1}'
+                    //             var x = '{"channel":' + '"' + ar[i] + '"' + ',"status":"已用完","hide":1}'
                     //             union[i] = JSON.parse(x)
                     //         }
                     //     }

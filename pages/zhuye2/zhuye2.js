@@ -413,10 +413,10 @@ Page({
             }
 
             that.data.history0 = tlist.reverse() //未使用的门票
-            // console.log(that.data.history0)
+            console.log(that.data.history0)
 
             that.data.history1 = tlist1.reverse()//使用中的门票
-            // console.log(that.data.history1)
+            console.log(that.data.history1)
 
 
             that.data.history2 = tlist2.reverse()//已使用的门票
