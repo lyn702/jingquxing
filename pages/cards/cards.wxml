@@ -1,7 +1,7 @@
 <view class="container">
     <view class='empty' wx:if="{{empty}}">
         <image src='../../image/empty.png'></image>
-        <view>门票列表为空，马上扫码购票吧</view>
+        <view>卡包列表为空，马上扫码购卡吧</view>
     </view>
     <view>
         <!-- 未使用 -->

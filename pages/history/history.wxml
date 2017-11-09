@@ -1,7 +1,7 @@
 <view class="container">
     <view class='empty' wx:if="{{empty}}">
         <image src='../../image/empty.png'></image>
-        <view>门票列表为空，马上扫码购票吧</view>
+        <view>票包列表为空，马上扫码购票吧</view>
     </view>
     <view class="tickets_list" wx:for="{{history2}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '单项票'}}">
         <view class="top">

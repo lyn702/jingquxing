@@ -163,15 +163,16 @@ items{
 .cards{
     display: flex;
     justify-content: flex-start;
-  margin-left: 20rpx;
-  border-left: 3px solid #0099ff;
-  padding-left: 10rpx;
+    margin-left: 20rpx;
+    border-left: 3px solid #0099ff;
+    padding-left: 10rpx;
 }
 
 .all{
-  margin-right:22rpx;
-  float:right;
-  color:blue;
+    font-size: 17px;
+    margin-right: 22rpx;
+    float: right;
+    color: #13B7F6;
 }
 
 .title{
