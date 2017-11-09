@@ -416,12 +416,12 @@ Page({
               history2: tlist2,
               history1: tlist1
             })
-            if ((tlist.length < 1) && (tlist1.length < 1)) {
+            if ((tlist.length < 1) && (tlist1.length < 1) && (tlist2.length < 1)) {
               that.setData({
                 empty: true
               })
             }
-            if ((tlist.length > 0) || (tlist1.length > 0)) {
+            if ((tlist.length > 0) || (tlist1.length > 0) || (tlist2.length > 0)) {
               that.setData({
                 empty: false
               })

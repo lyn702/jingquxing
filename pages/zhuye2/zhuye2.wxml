@@ -1,8 +1,8 @@
-<view class="container">
-    <view class='empty' wx:if="{{empty}}">
+<view class="head">
+    <!-- <view class='empty' wx:if="{{empty}}">
         <image src='../../image/empty.png'></image>
         <view>门票列表为空，马上扫码购票吧</view>
-    </view>
+    </view> -->
     <!-- 卡包栏 -->
     <view>
         <view class='title'>
@@ -82,7 +82,6 @@
             </view> -->
         </view>
     </view>
-
 </view>
 
 
