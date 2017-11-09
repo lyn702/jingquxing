@@ -8,7 +8,7 @@ function countdown(that) {
   var second = that.data.second
   if (second == 0) {
     that.setData({
-      codeButtText: "点击左上角关闭",
+      codeButtText: "点击关闭",
       disabledGetCode: false
     })
     return
@@ -93,7 +93,7 @@ Page({
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      method: "POST", 
+      method: "POST",
       success: function (res) {
        // console.log(res)
         if (res.data.result < 0) {
