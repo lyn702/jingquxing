@@ -14,14 +14,14 @@
         <view class='title'>
             <span wx:if="{{use_status == '使用中'}}">最近使用：{{date}} {{time}}</span>
             <span wx:if="{{use_status == '已使用'}}">最近使用：{{date}} {{time}}</span>
-            <span id="" catchtap="{{refund_act}}" style="float:right;padding-right:10px;color:#888;font-size:12pt;">{{use_status}}</span>
+            <span id="" style="float:right;padding-right:10px;color:#888;font-size:12pt;">{{use_status}}</span>
         </view>
     </view>
     <!-- 次卡显示订单编号及使用状态 -->
     <view wx:if="{{type == 2}}">
         <view class='title'>
             <span wx:if="{{use_status == '已使用'}}">最近使用：{{date}} {{time}}</span>
-            <span id="" catchtap="{{refund_act}}" style="float:right;padding-right:10px;color:#888;font-size:12pt;">{{use_status}}</span>
+            <span id="" style="float:right;padding-right:10px;color:#888;font-size:12pt;">{{use_status}}</span>
         </view>
     </view>
     <!-- 期限卡显示订单编号及使用状态-->
@@ -29,7 +29,7 @@
         <view class='title'>
             <span wx:if="{{use_status == '使用中'}}">最近使用: {{date}} {{time}}</span>
             <span wx:if="{{use_status == '已使用'}}">最近使用: {{date}} {{time}}</span>
-            <span id="" catchtap="{{refund_act}}" style="float:right;padding-right:10px;color:#888;font-size:12pt;">{{use_status}}</span>
+            <span id="" style="float:right;padding-right:10px;color:#888;font-size:12pt;">{{use_status}}</span>
         </view>
     </view>
 </view>
