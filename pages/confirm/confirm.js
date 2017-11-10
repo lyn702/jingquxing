@@ -248,7 +248,7 @@ Page({
                     union_tic: union
                   })
               }
-            //   次卡时使用状态的判断（已使用判断存在问题）
+            //   次卡时使用状态的判断（分为未使用和已使用）
             else if (order.type == 2) {
                 ar = ar.split(",")
                 if (br == "") {
