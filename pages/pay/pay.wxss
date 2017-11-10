@@ -8,7 +8,7 @@ page{
   border-radius: 5px 5px 5px 5px;
   margin: 0 auto;
   background: white;
-  font-size: 13pt;
+  font-size: 16px;
 }
 
 .pay_head {
@@ -16,55 +16,69 @@ page{
     width:95%;
     margin-top:10px;
     margin-left:2%;
-    border-radius:10rpx;
-    box-shadow:2rpx 2rpx 2rpx 2rpx gray;
+    /*box-shadow:2rpx 2rpx 2rpx 2rpx gray;*/
+    border-style: solid;
+    border-width: 1px;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    /*border-bottom: 1px;*/
+    border-color: rgba(153, 153, 153, 1);
 }
 
 .pay_head_1 {
-  margin-left: 10%;
+  margin-left: 5%;
   color: #1E1E1E;
 }
 
 .pay_head_2 {
-  margin-left: 10%;
+  margin-left: 5%;
   margin-top:10px;
   color: #1E1E1E;
 }
 
 .pay_info_info {
   display: flex;
-  height: 70px;
+  justify-content: space-between;
   /* border-bottom: 1px solid #d7d8da; */
 }
 
 .pay_info_name {
-  margin: 20px;
-  width: 60%;
-  margin-left: 10%;
+  margin: 10px;
+  width: 55%;
+  /*margin-left: 5%;*/
   color: #1E1E1E;
 }
 
-.pay_info_pricenum {
-  width: 30%;
-  margin-top: 10px;
-}
+/*.pay_info_pricenum {
+    display: flex;
+    width: 50%;
+    margin-top: 13px;
+}*/
 
 
-.pay_info_number {
+/*.pay_info_number {
   margin: 10px;
   color: #666666;
-}
+  font-weight: bold;
+}*/
 
 .pay_info_price {
+    /*padding: 7px;*/
+    width: 45%;
+    margin-left: 15px;
     color: #666666;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
 }
 
 .pay_tail_total {
-  padding: 5px;
-  margin-left: 70%;
+  padding: 7px;
+  margin-left: 65%;
   color: #38404a;
   font-size: 17px;
-  width: 20%;
 }
 
 .pay{
@@ -72,4 +86,8 @@ position: fixed;
 top:90%;
 width:90%;
 margin-left: 5%;
+}
+
+.pay_color{
+    color: #FF0000;
 }

@@ -1,33 +1,35 @@
 <!--pay.wxml-->
 
-<view style="height:40px;visibility:hidden"></view>
+<view style="height:20px;visibility:hidden"></view>
 <view class="paybody">
 
     <!--头-->
     <view class="pay_head">
-            <!--占位-->
-            <view style="height:15px"></view>
+        <!--占位-->
+        <view style="height:15px"></view>
+        <view style="width:60%">
             <view class="pay_head_1">购票账号:{{myPhone}}</view>
             <view class="pay_head_2">游玩项目:{{itemName}}</view>
-            <!--信息-->
-            <view class="pay_info_info" wx:for="{{myTickets}}" wx:for-item="ticket" wx:key="id">
-                <view class="pay_info_name">{{ticket.label}}</view>
-                <view class="pay_info_pricenum">
-                    <view class="pay_info_price">￥{{ticket.price}}</view>
-                    <view class="pay_info_number">{{ticket.number}}张</view>
-                </view>
-            </view>
+        </view>
+        <!--信息-->
+        <view class="pay_info_info" wx:for="{{myTickets}}" wx:for-item="ticket" wx:key="id">
+            <view class="pay_info_name">{{ticket.label}}</view>
+
+            <view class="pay_info_price">￥{{ticket.price}} X {{ticket.number}}张</view>
+            <!-- <view class="pay_info_number">{{ticket.number}}张</view> -->
+
+        </view>
     </view>
 
     <view class="pay_info">
         <view class="pay_tail_total">
-            <text>总额￥{{totalPrice}}</text>
+            <text>总额 ￥{{totalPrice}}</text>
         </view>
         <view class="pay_tail_total">
-            <text>折扣-{{discount}}</text>
+            <text>折扣 -{{discount}}</text>
         </view>
-        <view class="pay_tail_total">
-            <text>实付￥{{payPrice}}</text>
+        <view class="pay_tail_total pay_color">
+            <text>实付 ￥{{payPrice}}</text>
         </view>
     </view>
 
