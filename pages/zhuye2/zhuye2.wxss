@@ -164,6 +164,8 @@ items{
 }
 
 .juzhong {
+    font-size: 14px;
+    font-family: 'Arial Normal', 'Arial';
     color: #434343;
 }
 
