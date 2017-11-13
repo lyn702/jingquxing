@@ -2,7 +2,7 @@ var fundebug = require('./utils/fundebug.min.js')
 fundebug.apikey = '1200eb165d1d452cf2df3c0051b72b4502f837c94ccf25bf4ebeeb2e7d297ce0'
 
 App({
-  
+
   globalData: {
 
     device: "wxapp",
@@ -11,13 +11,13 @@ App({
     appVersion: "1.2.4",
     appname: "jingquxing",
     rootUrl: "https://leyuanxing.net/",//服务器url
-    userInfo: null,//用户微信信息 
+    userInfo: null,//用户微信信息
     logincode: null,
 
     storage_Phone: "phone",
     storage_MyTicket: "myTicket",
     storage_userid: "userid",
-    
+
     history:[],
     shopcart:[],
     myTicketList:[],
@@ -38,12 +38,12 @@ App({
   },
 
   onLaunch: function () {
-  
+
     //console.log("App onLaunch")
     // wx.setEnableDebug({
     //   enableDebug: false
     // })
- 
+
     var that = this
     var sysInfo = wx.getSystemInfoSync()
     console.log(sysInfo)
@@ -74,7 +74,7 @@ App({
           //console.log(res)
           that.globalData.logincode = res.code
           //  console.log("微信登陆,code：" + that.globalData.logincode)
-         
+
           wx.getSystemInfo(
             {
               success: function (res) {
@@ -106,9 +106,9 @@ App({
                       throw new Error("跳转失败！")
                     }
                 })
-               
+
                 }
-                
+
             })
 
           }
@@ -125,4 +125,3 @@ App({
     })
   }
 })
-

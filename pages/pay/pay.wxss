@@ -16,6 +16,7 @@ page{
     width:95%;
     margin-top:10px;
     margin-left:2%;
+    font-family: 'Arial Normal', 'Arial';
     /*box-shadow:2rpx 2rpx 2rpx 2rpx gray;*/
     border-style: solid;
     border-width: 1px;
@@ -27,8 +28,9 @@ page{
 }
 
 .pay_head_1 {
-  margin-left: 5%;
-  color: #1E1E1E;
+    /*font-family: 'Arial Normal', 'Arial';*/
+    margin-left: 5%;
+    color: #1E1E1E;
 }
 
 .pay_head_2 {

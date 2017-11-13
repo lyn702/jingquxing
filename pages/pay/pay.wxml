@@ -14,10 +14,8 @@
         <!--信息-->
         <view class="pay_info_info" wx:for="{{myTickets}}" wx:for-item="ticket" wx:key="id">
             <view class="pay_info_name">{{ticket.label}}</view>
-
             <view class="pay_info_price">￥{{ticket.price}} X {{ticket.number}}张</view>
             <!-- <view class="pay_info_number">{{ticket.number}}张</view> -->
-
         </view>
     </view>
 

@@ -430,15 +430,15 @@ Page({
               history2: tlist2,
               history1: tlist1
             })
-            // console.log(that.data.history0)
+            console.log(tlist.length)
             if ((tlist.length < 1) && (tlist1.length < 1)) {
               that.setData({
-                empty: true
+                empty: false
               })
             }
             if ((tlist.length > 0) || (tlist1.length > 0)) {
               that.setData({
-                empty: false
+                empty: true
               })
             }
           }
