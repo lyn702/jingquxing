@@ -10,7 +10,7 @@ App({
     // "wxappsecret": "815a92b58e5aab64f885b755d8dbf9e1",
     appVersion: "1.2.4",
     appname: "jingquxing",
-    rootUrl: "https://leyuanxing.net/",//服务器url
+    rootUrl: "http://120.79.12.95/",//服务器url
     userInfo: null,//用户微信信息
     logincode: null,
 

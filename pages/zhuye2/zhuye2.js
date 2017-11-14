@@ -388,10 +388,12 @@ Page({
 
 
             for (var i = 0; i < temp.length; i++) {
-                // console.log(temp[0].type)
+                // console.log(temp[i].type)
 
               var vtime = temp[i].validtime
+              // console.log(vtime)
               temp[i].validtime = vtime.slice(11, 16) + "至" + vtime.slice(30, 35)
+              // console.log(temp[i].validtime)
               if (temp[i].type == 0) {
                 temp[i].type = "单项票"
             } else if (temp[i].type == 1) {
@@ -431,6 +433,7 @@ Page({
               history1: tlist1
             })
             console.log(tlist)
+            console.log(tlist1)
             if ((tlist.length < 1) && (tlist1.length < 1)) {
               that.setData({
                 empty: false

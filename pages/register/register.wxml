@@ -1,32 +1,34 @@
 <!--account.wxml-->
 <!--注册-->
 <view class='getphone'>
-     <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" type='primary'>微信快速登录</button>
-        <button catchtap='invokephone' hidden="{{usephone}}">使用手机号登录</button>
-  </view>
-  <view class='logo' hidden="{{usephone}}"><image src='../../image/logo.jpg'></image></view>
-<block wx:if="{{usephone}}">
-<view class="register" >
-  <view class="register_phone">
-    <label class="register_phone_lable">手机号</label>
-    <input bindinput="getPhone" val type="number" maxlength="11" class="register_phone_input" placeholder="请输入手机号" focus="true" bindblur='validPhone' />
-  </view>
-
-  <view class="register_code">
-    <label class="register_code_lable">验证码</label>
-    <input bindinput="inputCode" type="number" maxlength="6" class="register_code_input" placeholder="请输入验证码" />
-    <button class="register_code_butt" style="background:#5d9cec;color: white;" disabled="{{disabledGetCode}}" bindtap="getCode" >{{codeButtText}}</button>
-  </view>
-
-  <view class="register_reg">
-    <button class="register_reg_butt" style="background:#6ACC77;color:white" disabled="{{disabledSubmit}}" bindtap="submit">使用手机号登录</button>
-    <checkbox-group bindchange="listenCheckboxChange" class="register_reg_checkbox">
-      <view class='xieyi'>
-        <checkbox checked="true" />
-        <navigator url="../proto/proto" style="margin:2px">登陆注册协议</navigator>
-      </view>
-    </checkbox-group>
-  </view>
-
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" type='primary'>微信快速登录</button>
+    <button catchtap='invokephone' hidden="{{usephone}}">使用手机号登录</button>
 </view>
+<view class='logo' hidden="{{usephone}}">
+    <image src='../../image/logo.jpg'></image>
+</view>
+<block wx:if="{{usephone}}">
+    <view class="register">
+        <view class="register_phone">
+            <label class="register_phone_lable">手机号</label>
+            <input bindinput="getPhone" val type="number" maxlength="11" class="register_phone_input" placeholder="请输入手机号" focus="true" bindblur='validPhone' />
+        </view>
+
+        <view class="register_code">
+            <label class="register_code_lable">验证码</label>
+            <input bindinput="inputCode" type="number" maxlength="6" class="register_code_input" placeholder="请输入验证码" />
+            <button class="register_code_butt" style="background:#5d9cec;color: white;" disabled="{{disabledGetCode}}" bindtap="getCode">{{codeButtText}}</button>
+        </view>
+
+        <view class="register_reg">
+            <button class="register_reg_butt" style="background:#6ACC77;color:white" disabled="{{disabledSubmit}}" bindtap="submit">使用手机号登录</button>
+            <checkbox-group bindchange="listenCheckboxChange" class="register_reg_checkbox">
+                <view class='xieyi'>
+                    <checkbox checked="true" />
+                    <navigator url="../proto/proto" style="margin:2px">登陆注册协议</navigator>
+                </view>
+            </checkbox-group>
+        </view>
+
+    </view>
 </block>

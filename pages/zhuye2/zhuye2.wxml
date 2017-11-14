@@ -17,37 +17,37 @@
                 <view class='card limit' wx:for="{{history0}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '联程卡'}}" bindtap="detail">
                         <view class='parkname'>{{order.scene}}</view>
                         <view class='time_limit'>{{order.type}}</view>
-                        <view>有效期：长期有效</view>
+                        <view>有效期：{{order.end_data}}</view>
                 </view>
                 <!-- 未使用次卡的显示 -->
                 <view class='card limit' wx:for="{{history0}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '次卡'}}" bindtap="detail">
                         <view class='parkname'>{{order.scene}}</view>
                         <view class='time_limit'>{{order.type}}</view>
-                        <view>有效期：长期有效</view>
+                        <view>有效期：{{order.end_data}}</view>
                 </view>
                 <!-- 未使用期限卡的显示 -->
                 <view class='card limit' wx:for="{{history0}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '期限卡'}}" bindtap="detail">
                         <view class='parkname'>{{order.scene}}</view>
                         <view class='time_limit'>{{order.type}}</view>
-                        <view>有效期：{{order.validtime}}</view>
+                        <view>有效期：{{order.end_data}}</view>
                 </view>
                 <!-- 使用中联程卡的显示 -->
                 <view class='card limit' wx:for="{{history1}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '联程卡'}}" bindtap="detail">
                         <view class='parkname'>{{order.scene}}</view>
                         <view class='time_limit'>{{order.type}}</view>
-                        <view>有效期：长期有效</view>
+                        <view>有效期：{{order.end_data}}</view>
                 </view>
                 <!-- 使用中次卡的显示 -->
                 <view class='card limit' wx:for="{{history1}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '次卡'}}" bindtap="detail">
                         <view class='parkname'>{{order.scene}}</view>
                         <view class='time_limit'>{{order.type}}</view>
-                        <view>有效期：长期有效</view>
+                        <view>有效期：{{order.end_data}}</view>
                 </view>
                 <!-- 使用中期限卡的显示 -->
                 <view class='card limit' wx:for="{{history1}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '期限卡'}}" bindtap="detail">
                         <view class='parkname'>{{order.scene}}</view>
                         <view class='time_limit'>{{order.type}}</view>
-                        <view>有效期：{{order.validtime}}</view>
+                        <view>有效期：{{order.end_data}}</view>
                 </view>
             </view>
             <!-- 卡包无可以显示的卡 -->
@@ -92,8 +92,8 @@
                     </view>
                 </view>
             </view>
-            <!-- <view wx:elif="{{(history0.length > 0) && (order.type != '单项票')}}"> 这里没有票 </view> -->
         </view>
+        <!-- <view wx:if="{{(history0.length > 0) && (order.type != '单项票')}}">不是单项票</view> -->
     </view>
 </view>
 
