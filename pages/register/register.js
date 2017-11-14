@@ -34,14 +34,14 @@ Page({
 
   getPhoneNumber: function (e) {
     var that = this
-    console.log(e)
-    console.log(e.detail)
+    // console.log(e)
+    // console.log(e.detail)
     if (e.detail.errMsg == "getPhoneNumber:ok") {
-      console.log(e.detail.iv)
-      console.log(e.detail.encryptedData)
+      // console.log(e.detail.iv)
+      // console.log(e.detail.encryptedData)
       var iv = e.detail.iv
       var encryptedData = e.detail.encryptedData
-      console.log(app.globalData.device)
+      // console.log(app.globalData.device)
       wx.request({
         url: app.globalData.rootUrl + 'visitor/register_or_login_wxauth',
         data: {
@@ -76,14 +76,14 @@ Page({
         }
       })
 
-     
+
     } else {
       wx.showModal({
         title: '登录失败，请重试',
         content:e.detail.errMsg,
         showCancel: false
       })
-    
+
     }
   },
   invokephone: function () {

@@ -11,6 +11,7 @@
         </view>
 
         <view>
+            <!-- 卡包有可以显示的卡 -->
             <view wx:if="{{((history0.length > 0) || (history1.length > 0)) && (order.type !='单项票')}}">
                 <!-- 未使用联程卡的显示 -->
                 <view class='card limit' wx:for="{{history0}}" wx:for-item="order" id="{{order.id}}" wx:key="id" wx:if="{{order.type == '联程卡'}}" bindtap="detail">
@@ -49,9 +50,10 @@
                         <view>有效期：{{order.validtime}}</view>
                 </view>
             </view>
+            <!-- 卡包无可以显示的卡 -->
             <view class="card1" wx:else>
                 <image src='../../image/empty.png'></image>
-                <view class='juzhong'>无可使用的卡</view>
+                <view>无可使用的卡</view>
             </view>
         </view>
     </view>
@@ -90,7 +92,7 @@
                     </view>
                 </view>
             </view>
-            <!-- <view wx:else> 这里没有票 </view> -->
+            <!-- <view wx:elif="{{(history0.length > 0) && (order.type != '单项票')}}"> 这里没有票 </view> -->
         </view>
     </view>
 </view>
