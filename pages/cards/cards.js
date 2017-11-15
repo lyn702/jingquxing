@@ -382,7 +382,9 @@ Page({
                             } else if (temp[i].type == 3) {
                                 temp[i].type = "期限卡"
                             }
-                            if (temp[i].end_date == null) {
+                            if (temp[i].end_date == 0) {
+                                temp[i].end_date = "长期有效"
+                            } else if (temp[i].end_date == null) {
                                 temp[i].end_date = "长期有效"
                             }
                             // console.log(temp[i].end_date)

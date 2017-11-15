@@ -400,6 +400,8 @@ Page({
                             // console.log(temp[0].type)
                             if (temp[i].end_date == 0) {
                                 temp[i].end_date = "长期有效"
+                            } else if (temp[i].end_date == null) {
+                                temp[i].end_date = "长期有效"
                             }
                             // console.log(temp[i].end_date)
                             if (temp[i].status == 0) {
