@@ -2,64 +2,64 @@
 <!-- 页面显示卡包 -->
 <block class="main">
 
-  <block wx:for="{{ticketList}}" wx:for-item="ticket" wx:key="id" wx:if="{{flag=='coupon'}}">
+    <block wx:for="{{ticketList}}" wx:for-item="ticket" wx:key="id" wx:if="{{flag=='coupon'}}">
 
-    <view>
-      <view class="package_ticket">
-        <view class="ticket" >
-          <view class='price'>
-            <view class='tprice'>￥{{ticket.price}}</view>
-            <!-- 显示联程卡 -->
-            <span class="type" wx:if="{{ticket.type == '1'}}">联程卡</span>
-            <!-- 显示次卡 -->
-            <span class="type" wx:if="{{ticket.type == '2'}}">次卡</span>
-            <!-- 显示期限卡 -->
-            <span class="type" wx:if="{{ticket.type == '3'}}">期限卡</span>
-          </view>
-          <view class='t_info'>
-            <view>{{ticket.scene_name}}</view>
-            <view>门票类型：{{ticket.label}}</view>
-            <view>游玩时间：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
-          </view>
-          <view class='add_t' bindtap="addNum" id="{{ticket.id}}" wx:if="{{show_tic}}">
-            <view class='add'>
-              <image src="../../image/11.png"></image>
+        <view>
+            <view class="package_ticket">
+                <view class="ticket">
+                    <view class='price'>
+                        <view class='tprice'>￥{{ticket.price}}</view>
+                        <!-- 显示联程卡 -->
+                        <span class="type" wx:if="{{ticket.type == '1'}}">联程卡</span>
+                        <!-- 显示次卡 -->
+                        <span class="type" wx:if="{{ticket.type == '2'}}">次卡</span>
+                        <!-- 显示期限卡 -->
+                        <span class="type" wx:if="{{ticket.type == '3'}}">期限卡</span>
+                    </view>
+                    <view class='t_info'>
+                        <view>{{ticket.scene_name}}</view>
+                        <view>门票类型：{{ticket.label}}</view>
+                        <view>游玩时间：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
+                    </view>
+                    <view class='add_t' bindtap="addNum" id="{{ticket.id}}" wx:if="{{show_tic}}">
+                        <view class='add'>
+                            <image src="../../image/11.png"></image>
+                        </view>
+                    </view>
+                </view>
+                <view class='ticket info'>
+                    <view class='detail'>
+                        门票包含：{{ticket.channel_name}}
+                    </view>
+                </view>
             </view>
-          </view>
         </view>
-        <view class='ticket info'>
-          <view class='detail'>
-            门票包含：{{ticket.channel_name}}
-          </view>
-        </view>
-      </view>
-    </view>
 
-  </block>
+    </block>
 
 </block>
 
 <!-- 页面显示单项票 -->
 <block class="main">
 
-  <view class='package_ticket' wx:for="{{ticketList}}" wx:for-item="ticket" wx:key="id" wx:if="{{flag=='buy'}}" >
-    <view class='ticket'>
-      <view class='price'>
-        <view class='tprice'>￥{{ticket.price}}</view>
-        <span class="type" wx:if="{{flag=='buy'}}">单项票</span>
-      </view>
-      <view class='t_info'>
-        <view>项目：{{ticket.channel_name}}</view>
-        <view>门票类型：{{ticket.label}}</view>
-        <view>游玩时间：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
-      </view>
-      <view class='add_t' id="{{ticket.id}}" bindtap="addNum">
-        <view class='add'>
-          <image src='../../image/11.png'></image>
+    <view class='package_ticket' wx:for="{{ticketList}}" wx:for-item="ticket" wx:key="id" wx:if="{{flag=='buy'}}">
+        <view class='ticket'>
+            <view class='price'>
+                <view class='tprice'>￥{{ticket.price}}</view>
+                <span class="type" wx:if="{{flag=='buy'}}">单项票</span>
+            </view>
+            <view class='t_info'>
+                <view>项目：{{ticket.channel_name}}</view>
+                <view>门票类型：{{ticket.label}}</view>
+                <view>游玩时间：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
+            </view>
+            <view class='add_t' id="{{ticket.id}}" bindtap="addNum">
+                <view class='add'>
+                    <image src='../../image/11.png'></image>
+                </view>
+            </view>
         </view>
-      </view>
     </view>
-  </view>
 
 </block>
 
@@ -68,41 +68,41 @@
 
 <!--结算中心-->
 <view class="index_footer" wx:if="{{flag=='buy'}}">
-  <!--操作-->
-  <view class="index_footer_head" >
-    <view class="index_footer_head_1">购物车</view>
-    <view bindtap="clearAll" class="index_footer_head_2">清空</view>
-  </view>
+    <!--操作-->
+    <view class="index_footer_head">
+        <view class="index_footer_head_1">购物车</view>
+        <view bindtap="clearAll" class="index_footer_head_2">清空</view>
+    </view>
 
 
-  <view class="index_footer_tick" >
-    <view class="index_footer_for" wx:for="{{myTicketList}}" wx:for-item="ticket" wx:key="id">
-      <view class="index_footer_tick_name">{{ticket.label}}</view>
-      <view class="index_footer_tick_price">￥{{ticket.price * ticket.number}}</view>
-      <view class="index_footer_tick_number">
-        <image id="{{ticket.id}}" bindtap="subNum" class="index_footer_tick_number_img" src="../../image/number_sub.png" />
-        <view class="index_footer_tick_number_num">
-          <view style="visibility:hidden">A</view>
-          {{ticket.number}}
-          <view style="visibility:hidden">B</view>
+    <view class="index_footer_tick">
+        <view class="index_footer_for" wx:for="{{myTicketList}}" wx:for-item="ticket" wx:key="id">
+            <view class="index_footer_tick_name">{{ticket.label}}</view>
+            <view class="index_footer_tick_price">￥{{ticket.price * ticket.number}}</view>
+            <view class="index_footer_tick_number">
+                <image id="{{ticket.id}}" bindtap="subNum" class="index_footer_tick_number_img" src="../../image/number_sub.png" />
+                <view class="index_footer_tick_number_num">
+                    <view style="visibility:hidden">A</view>
+                    {{ticket.number}}
+                    <view style="visibility:hidden">B</view>
+                </view>
+                <image id="{{ticket.id}}" bindtap="addNum" class="index_footer_tick_number_img" src="../../image/number_add.png" />
+            </view>
         </view>
-        <image id="{{ticket.id}}" bindtap="addNum" class="index_footer_tick_number_img" src="../../image/number_add.png" />
-      </view>
     </view>
-  </view>
 
-  <!--结算-->
-  <view class="index_footer_pay">
+    <!--结算-->
+    <view class="index_footer_pay">
 
-    <view class="index_footer_pay_total">
-      <view class="index_footer_pay_total_notice">
-        <image bindtap="hiddenMyTick" class="index_footer_pay_total_img" src="../../image/u585.png"></image>
-        <view hidden="{{hiddenNotice}}" class="index_footer_pay_total_img_notice">{{totalNum}}</view>
-      </view>
-      <view hidden="{{hiddenNotice}}" class="index_footer_pay_total_price">￥{{totalPrice}}</view>
+        <view class="index_footer_pay_total">
+            <view class="index_footer_pay_total_notice">
+                <image bindtap="hiddenMyTick" class="index_footer_pay_total_img" src="../../image/u585.png"></image>
+                <view hidden="{{hiddenNotice}}" class="index_footer_pay_total_img_notice">{{totalNum}}</view>
+            </view>
+            <view hidden="{{hiddenNotice}}" class="index_footer_pay_total_price">￥{{totalPrice}}</view>
+        </view>
+        <view class="index_footer_pay_pay" bindtap="goToPay">
+            <button class="index_footer_pay_pay_butt">下单</button>
+        </view>
     </view>
-    <view class="index_footer_pay_pay" bindtap="goToPay">
-      <button class="index_footer_pay_pay_butt">下单</button>
-    </view>
-  </view>
 </view>
