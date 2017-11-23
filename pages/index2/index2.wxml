@@ -16,7 +16,7 @@
                 <view class='t_info'>
                     <view>{{ticket.scene_name}}</view>
                     <view>门票类型：{{ticket.label}}</view>
-                    <view>有效期：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
+                    <view>游玩时间：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
                 </view>
                 <!-- 联程卡加号有用 -->
                 <view class='add_t' bindtap="addNum" id="{{ticket.id}}" wx:if="{{ticket.type == '1'}}">
@@ -27,11 +27,11 @@
             </view>
             <view class='ticket info'>
                 <view class='detail'>
-                    门票包含：{{ticket.channel_name}}
+                    游玩内容：{{ticket.channel_name}}
                 </view>
                 <view class='tips'>
                     <image src='../../image/info_u250.png'></image>
-                    购票须知：购买多张票的情况下，同一项目一次性检票，检票后无法退票。联程票每单仅限一种类型，如需多种请分别下单。
+                    购买须知：购买多张票的情况下，同一项目一次性检票，检票后无法退票。联程票每单仅限一种类型，如需多种请分别下单。
                 </view>
             </view>
         </view>

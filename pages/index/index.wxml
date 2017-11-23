@@ -29,7 +29,7 @@
                 </view>
                 <view class='ticket info'>
                     <view class='detail'>
-                        门票包含：{{ticket.channel_name}}
+                        游玩内容：{{ticket.channel_name}}
                     </view>
                 </view>
             </view>
