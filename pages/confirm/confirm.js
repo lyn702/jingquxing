@@ -30,8 +30,41 @@ Page({
         var that = this
         that.data.order = app.globalData.orderid
         var orderid = app.globalData.orderid
-        //   console.log(orderid)
-        //  console.log(app.globalData.userid)
+        // console.log(app.globalData.logincode)
+        // console.log(app.globalData.userid)
+        
+        //检查用户Session
+        wx.checkSession({
+            success: function(res) {
+                console.log(res)
+            },
+            fail: function() {
+                wx.login({
+                    success: function (res) {
+                        if (res.code) {
+                            // 失败时候重新wx.login获得新的code并替换
+                            app.globalData.logincode = res.code
+                        }
+                    }
+                })
+                wx.request({
+                    url: app.globalData.rootUrl + "visitor/updateOpenIdSessionKey",
+                    data: {
+                        "appname": app.globalData.appname,
+                        "device": app.globalData.device,
+                        "id": app.globalData.userid,
+                        "wx_login_code": app.globalData.logincode,
+                    },
+                    header: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    method: "POST",
+                    success: function(res) {
+                        console.log(res)
+                    }
+                })
+            }
+        })
         wx.request({
             url: app.globalData.rootUrl + "/order/detail",
             data: {

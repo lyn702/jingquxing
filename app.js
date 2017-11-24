@@ -70,10 +70,10 @@ App({
     wx.login({
       success: function (res) {
         if (res.code) {
-          //  console.log("微信登陆：" + res)
-          //console.log(res)
+           // console.log("微信登陆：" )
+          // console.log(res)
           that.globalData.logincode = res.code
-          //  console.log("微信登陆,code：" + that.globalData.logincode)
+           console.log("微信登陆,code：" + that.globalData.logincode)
 
           wx.getSystemInfo(
             {
