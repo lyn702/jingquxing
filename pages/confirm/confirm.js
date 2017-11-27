@@ -21,6 +21,7 @@ Page({
         data: "",
         time: "",
         valid_info: "",
+        end_date: "",
         // status: "",
         use_status: "未使用",
         union_tic: []
@@ -32,39 +33,39 @@ Page({
         var orderid = app.globalData.orderid
         // console.log(app.globalData.logincode)
         // console.log(app.globalData.userid)
-        
+
         //检查用户Session
-        wx.checkSession({
-            success: function(res) {
-                console.log(res)
-            },
-            fail: function() {
-                wx.login({
-                    success: function (res) {
-                        if (res.code) {
-                            // 失败时候重新wx.login获得新的code并替换
-                            app.globalData.logincode = res.code
-                        }
-                    }
-                })
-                wx.request({
-                    url: app.globalData.rootUrl + "visitor/updateOpenIdSessionKey",
-                    data: {
-                        "appname": app.globalData.appname,
-                        "device": app.globalData.device,
-                        "id": app.globalData.userid,
-                        "wx_login_code": app.globalData.logincode,
-                    },
-                    header: {
-                        "Content-Type": "application/x-www-form-urlencoded"
-                    },
-                    method: "POST",
-                    success: function(res) {
-                        console.log(res)
-                    }
-                })
-            }
-        })
+        // wx.checkSession({
+        //     success: function(res) {
+        //         console.log(res)
+        //     },
+        //     fail: function() {
+        //         wx.login({
+        //             success: function (res) {
+        //                 if (res.code) {
+        //                     // 失败时候重新wx.login获得新的code并替换
+        //                     app.globalData.logincode = res.code
+        //                 }
+        //             }
+        //         })
+        //         wx.request({
+        //             url: app.globalData.rootUrl + "visitor/updateOpenIdSessionKey",
+        //             data: {
+        //                 "appname": app.globalData.appname,
+        //                 "device": app.globalData.device,
+        //                 "id": app.globalData.userid,
+        //                 "wx_login_code": app.globalData.logincode,
+        //             },
+        //             header: {
+        //                 "Content-Type": "application/x-www-form-urlencoded"
+        //             },
+        //             method: "POST",
+        //             success: function(res) {
+        //                 console.log(res)
+        //             }
+        //         })
+        //     }
+        // })
         wx.request({
             url: app.globalData.rootUrl + "/order/detail",
             data: {
@@ -88,7 +89,19 @@ Page({
                 var temp = order.type
                 // console.log(temp)
                 // console.log(res.data)
-
+                // console.log(order.end_date)
+                if (order.end_date == 0) {
+                    order.end_date = "长期有效"
+                    that.setData({
+                        end_date: order.end_date
+                    })
+                } else if (order.end_date == null) {
+                    order.end_date = "长期有效"
+                    that.setData({
+                        end_date: order.end_date
+                    })
+                }
+                // console.log(order.end_date)
                 // 0-单项票 1-联程卡 2-次卡 3-期限卡
                 if (temp == 0) {
                     that.setData({

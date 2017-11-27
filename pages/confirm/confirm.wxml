@@ -53,6 +53,10 @@
                 消费金额：
                 <span> {{money}}元</span>
             </view>
+            <view class='ticket'>
+                有效期至：
+                <span> {{end_date}}</span>
+            </view>
         </view>
         <view style='height:1px;background:#888;'></view>
         <!-- 联程卡 -->
