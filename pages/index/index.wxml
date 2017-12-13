@@ -17,9 +17,9 @@
                         <span class="type" wx:if="{{ticket.type == '3'}}">期限卡</span>
                     </view>
                     <view class='t_info'>
-                        <view>{{ticket.scene_name}}</view>
-                        <view>门票类型：{{ticket.label}}</view>
-                        <view>游玩时间：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
+                        <view>景区：{{ticket.scene_name}}</view>
+                        <view>门票：{{ticket.label}}</view>
+                        <view>时间：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
                     </view>
                     <view class='add_t' bindtap="addNum" id="{{ticket.id}}" wx:if="{{show_tic}}">
                         <view class='add'>
@@ -49,9 +49,9 @@
                 <span class="type" wx:if="{{flag=='buy'}}">单项票</span>
             </view>
             <view class='t_info'>
-                <view>项目：{{ticket.channel_name}}</view>
-                <view>门票类型：{{ticket.label}}</view>
-                <view>游玩时间：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
+                <view>景区：{{ticket.scene_name}}{{ticket.channel_name}}</view>
+                <view>门票：{{ticket.label}}</view>
+                <view>时间：{{ticket.validtime_start}}至{{ticket.validtime_end}}</view>
             </view>
             <view class='add_t' id="{{ticket.id}}" bindtap="addNum">
                 <view class='add'>
