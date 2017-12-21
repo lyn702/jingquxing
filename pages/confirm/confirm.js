@@ -33,39 +33,6 @@ Page({
         var orderid = app.globalData.orderid
         // console.log(app.globalData.logincode)
         // console.log(app.globalData.userid)
-
-        //检查用户Session
-        // wx.checkSession({
-        //     success: function(res) {
-        //         console.log(res)
-        //     },
-        //     fail: function() {
-        //         wx.login({
-        //             success: function (res) {
-        //                 if (res.code) {
-        //                     // 失败时候重新wx.login获得新的code并替换
-        //                     app.globalData.logincode = res.code
-        //                 }
-        //             }
-        //         })
-        //         wx.request({
-        //             url: app.globalData.rootUrl + "visitor/updateOpenIdSessionKey",
-        //             data: {
-        //                 "appname": app.globalData.appname,
-        //                 "device": app.globalData.device,
-        //                 "id": app.globalData.userid,
-        //                 "wx_login_code": app.globalData.logincode,
-        //             },
-        //             header: {
-        //                 "Content-Type": "application/x-www-form-urlencoded"
-        //             },
-        //             method: "POST",
-        //             success: function(res) {
-        //                 console.log(res)
-        //             }
-        //         })
-        //     }
-        // })
         wx.request({
             url: app.globalData.rootUrl + "/order/detail",
             data: {
@@ -172,9 +139,9 @@ Page({
                 that.data.type = order.type
                 // 通道ID
                 var ar = order.channel
-                console.log(ar)
+                // console.log(ar)
                 var br = order.used_channel
-                console.log(br)
+                // console.log(br)
                 //   单项票时使用状态的判断
                 if (order.type == 0) {
                     ar = ar.split(",")
@@ -426,6 +393,56 @@ Page({
                         union_tic: union
                     })
                 }
+
+                // 判断是否被动核销
+                let passiveCheckin = setInterval(function () {
+                    console.log(order.id)
+                    let suiji = Math.random()
+                    // console.log(suiji)
+                    let one = String(suiji)
+                    console.log(one)
+                    console.log(order.id)
+                    wx.request({
+                        url: app.globalData.rootUrl + "/newapi/wxapp/orderCheckResult" + '?r=' + one,
+                        data: {
+                            "appname": app.globalData.appname,
+                            "device": app.globalData.device,
+                            "order_id": order.id,
+                        },
+                        header: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        method: "POST",
+                        success: function(res) {
+                            console.log(res)
+                            if (res.data.result === 0) {
+                                let info = res.data.info
+                                console.log(info.is_checked)
+                                if (info.is_checked === 1) {
+                                    clearInterval(passiveCheckin)
+                                    app.globalData.scene = order.scene
+                                    app.globalData.channel = order.channel
+                                    app.globalData.buydate = order.buydate
+                                    app.globalData.tickets = order.tickets
+                                    app.globalData.money = order.money
+                                    app.globalData.orderid = order.id
+                                    wx.showModal({
+                                        title: '检票成功',
+                                        content: '检票成功，请尽快入园。',
+                                        showCancel: false,
+                                        success: function(res) {
+                                            if (res.confirm) {
+                                                wx.redirectTo({
+                                                    url: '../checked/checked'
+                                                })
+                                            }
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    })
+                }, 2000)
             }
         })
     },
@@ -435,6 +452,40 @@ Page({
             url: '../zhuye2/zhuye2'
         })
     },
+
+    // 判断是否被动核销
+    // let passiveCheckin = function() {
+    //     wx.request({
+    //         url: app.globalData.rootUrl + "/newapi/wxapp/orderCheckResult",
+    //         data: {
+    //             "appname": app.globalData.appname,
+    //             "device": app.globalData.device
+    //         },
+    //         header: {
+    //             "Content-Type": "application/x-www-form-urlencoded"
+    //         },
+    //         method: "POST",
+    //         success: function(res) {
+    //             // console.log(res)
+    //             if (res.result === 0) {
+    //
+    //                 wx.showModal({
+    //                     title: '检票成功',
+    //                     content: '检票成功，请尽快入园。',
+    //                     showCancel: false,
+    //                     success: function(res) {
+    //                         if (res.confirm) {
+    //                             wx.redirectTo({
+    //                                 url: '../checked/checked'
+    //                             })
+    //                         }
+    //                     }
+    //                 })
+    //             }
+    //         }
+    //     })
+    // }
+    // let int=self.setInterval("passiveCheckin()",100)
 
     //定义退票事件
     refund: function() {
@@ -483,7 +534,6 @@ Page({
                                     title: res.data.msg,
                                     showCancel: false
                                 })
-
                             }
                         },
                         fail: function() {
@@ -525,7 +575,7 @@ Page({
             },
             method: "POST",
             success: function(res) {
-                //console.log(res)
+                // console.log(res)
                 if (res.data.result == 1) {
                     if (res.data.pay_status == "SUCCESS") {
                         wx.scanCode({

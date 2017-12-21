@@ -1,10 +1,10 @@
-<view class="head">
+
     <!-- <view class='empty' wx:if="{{empty}}">
         <image src='../../image/empty.png'></image>
         <view>门票列表为空，马上扫码购票吧</view>
     </view> -->
     <!-- 卡包栏 -->
-    <view>
+    <view class='head'>
         <view class='title'>
             <span class='cards'>卡包</span>
             <span class='all' id='all_card' bindtap="showCards">全部></span>
@@ -59,7 +59,7 @@
     </view>
 
     <!-- 票包栏 -->
-    <view>
+    <view class="head">
         <view class='title'>
             <span class='cards'>票包</span>
             <span class='all' id='all_card' bindtap="showHis">全部></span>
@@ -95,7 +95,7 @@
         </view>
         <!-- <view wx:if="{{(history0.length > 0) && (order.type != '单项票')}}">不是单项票</view> -->
     </view>
-</view>
+
 
 
 <view class="saoma" bindtap="scanqrcode">
