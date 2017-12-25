@@ -32,4 +32,4 @@
     </view>
 </view>
 <!-- <view class="bottom"> -->
-<button catchtap="pay" type="primary" class="pay">付款</button>
+<button catchtap="pay" type="primary" disabled="{{disabledGetCode}}" class="pay">{{payText}}</button>

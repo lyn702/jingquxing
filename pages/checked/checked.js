@@ -45,8 +45,6 @@ Page({
         })
     },
 
-
-
     onLoad: function() {
         var that = this
 
@@ -101,7 +99,7 @@ Page({
             }
         })
     },
-    
+
     onShow: function() {
 
     }

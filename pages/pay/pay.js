@@ -10,7 +10,9 @@ Page({
         totalPrice: 0, //总价
         discount: 0, //折扣
         payPrice: 0, //支付价
-        userid: "" //用户id
+        userid: "" ,//用户id
+        disabledGetCode: false,
+        payText: '付款',
     },
 
     onLoad: function() {
@@ -64,6 +66,7 @@ Page({
             },
             method: "POST",
             success: function(res) {
+
                 console.log("tradeinfo_pay success:以下是返回值")
                 // console.log("res:")
                 console.log(res)
@@ -85,6 +88,12 @@ Page({
                     payInfo = JSON.parse(payInfo)
 
                     if (payInfo.result_code == "SUCCESS" && payInfo.return_code == "SUCCESS") {
+                        // 点击付款之后变为正在支付且不可点击
+                        that.setData({
+                            payText: '正在支付',
+                            disabledGetCode: true,
+                        })
+
                         var ttt = Date.now().toString()
                         // console.log(ttt)
                         var pkg = 'prepay_id=' + payInfo.prepay_id
@@ -148,6 +157,10 @@ Page({
                                     title: '支付失败',
                                     content: '',
                                     showCancel: false
+                                })
+                                that.setData({
+                                    payText: '付款',
+                                    disabledGetCode: false,
                                 })
                                 //向服务器发送支付结果
                                 wx.request({
