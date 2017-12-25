@@ -145,6 +145,10 @@ Page({
                                             title: "支付失败，请重试",
                                             duration: 2000
                                         })
+                                        that.setData({
+                                            payText: '付款',
+                                            disabledGetCode: false,
+                                        })
                                     }
                                 })
                             },
