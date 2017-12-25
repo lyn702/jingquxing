@@ -453,40 +453,6 @@ Page({
         })
     },
 
-    // 判断是否被动核销
-    // let passiveCheckin = function() {
-    //     wx.request({
-    //         url: app.globalData.rootUrl + "/newapi/wxapp/orderCheckResult",
-    //         data: {
-    //             "appname": app.globalData.appname,
-    //             "device": app.globalData.device
-    //         },
-    //         header: {
-    //             "Content-Type": "application/x-www-form-urlencoded"
-    //         },
-    //         method: "POST",
-    //         success: function(res) {
-    //             // console.log(res)
-    //             if (res.result === 0) {
-    //
-    //                 wx.showModal({
-    //                     title: '检票成功',
-    //                     content: '检票成功，请尽快入园。',
-    //                     showCancel: false,
-    //                     success: function(res) {
-    //                         if (res.confirm) {
-    //                             wx.redirectTo({
-    //                                 url: '../checked/checked'
-    //                             })
-    //                         }
-    //                     }
-    //                 })
-    //             }
-    //         }
-    //     })
-    // }
-    // let int=self.setInterval("passiveCheckin()",100)
-
     //定义退票事件
     refund: function() {
         var that = this
